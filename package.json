@@ -1,6 +1,6 @@
 {
-  "name": "winterfell",
-  "version": "1.0.6",
+  "name": "react-schema",
+  "version": "0.0.1",
   "description": "Generate complex, validated and extendable JSON-based forms in React",
   "main": "dist/index.js",
   "scripts": {
@@ -10,7 +10,8 @@
     "prepublish": "npm run clean && npm run build"
   },
   "keywords": [
-    "winterfell",
+    "mummyhelp",
+    "react-schema"
     "form",
     "forms",
     "engine",
@@ -23,10 +24,10 @@
     "questions",
     "react-component"
   ],
-  "author": "Andrew Hathaway <andrew@andrewhathaway.net>",
+  "author": "Abhisek Paul <abhisekpaul@gmail.comt>",
   "repository": {
     "type": "git",
-    "url": "git://github.com/andrewhathaway/winterfell.git"
+    "url": "git://github.com/abhisekpaul/react-schema.git"
   },
   "license": "MIT",
   "dependencies": {
