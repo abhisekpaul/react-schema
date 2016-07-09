@@ -11,7 +11,7 @@
   },
   "keywords": [
     "mummyhelp",
-    "react-schema"
+    "react-schema",
     "form",
     "forms",
     "engine",
@@ -24,7 +24,7 @@
     "questions",
     "react-component"
   ],
-  "author": "Abhisek Paul <abhisekpaul@gmail.comt>",
+  "author": "Abhisek Paul <abhisekpaul@gmail.com>",
   "repository": {
     "type": "git",
     "url": "git://github.com/abhisekpaul/react-schema.git"
