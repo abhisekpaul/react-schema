@@ -1,11 +1,13 @@
 var React      = window.React = require('react');
+import TextField from 'material-ui/TextField';
+var ReactDOM      = window.ReactDOM = require('react-dom');
 var Winterfell = require('../src/index');
 
 var schema      = require('./schema');
 var loginSchema = require('./loginSchema');
 
 var onRender = () => {
-  console.log('Great news! Winterfell rendered successfully');
+  console.log('Great news! React schema rendered successfully');
 };
 
 var onUpdate = (questionAnswers) => {
@@ -24,15 +26,17 @@ var onSubmit = (questionAnswers, target) => {
 };
 
 window.onload = function() {
-  React.render(
-    <Winterfell schema={loginSchema}
-                onRender={onRender}
-                onUpdate={onUpdate}
-                renderRequiredAsterisk={() => <span>{'*'}</span>} />,
+  ReactDOM.render(
+    <div>
+          <Winterfell schema={loginSchema}
+                      onRender={onRender}
+                      onUpdate={onUpdate}
+                      renderRequiredAsterisk={() => <span>{'*'}</span>} />
+    </div>,
     document.getElementById('login-form')
   );
 
-  React.render(
+  ReactDOM.render(
     <Winterfell schema={schema}
                 disableSubmit={true}
                 onRender={onRender}

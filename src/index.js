@@ -1,9 +1,15 @@
 var React = require('react');
+import baseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
 var _     = require('lodash').noConflict();
 
 var QuestionPanel = require('./questionPanel');
 
 class Winterfell extends React.Component {
+
+  static childContextTypes = {
+    muiTheme: React.PropTypes.object
+  };
 
   constructor(props) {
     super(props);
@@ -42,6 +48,11 @@ class Winterfell extends React.Component {
       currentPanel    : currentPanel,
       action          : this.props.action,
       questionAnswers : this.props.questionAnswers
+    };
+  }
+  getChildContext() {
+    return {
+      muiTheme: getMuiTheme(baseTheme)
     };
   }
 

@@ -6,18 +6,20 @@ var InputTypes = require('./inputTypes');
 class Question extends React.Component {
 
   handleInputChange(questionId, value) {
+    let result = value && value.target ? value.target.value : value;
     this.props.onAnswerChange(
       questionId,
-      value,
+      result,
       this.props.validations,
       this.props.validateOn
     );
   }
 
   handleInputBlur(questionId, value) {
+    let result = value && value.target ? value.target.value : value;
     this.props.onQuestionBlur(
       questionId,
-      value,
+      result,
       this.props.validations,
       this.props.validateOn
     );
