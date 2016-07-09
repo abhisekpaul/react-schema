@@ -11,7 +11,7 @@ var inputTypes = {
   selectInput          : require('./selectInput'),
   textareaInput        : require('./textareaInput'),
   textInput            : require('./textInput'),
-  materialTextInput    : require('./material/textField')
+  materialTextField    : require('./material/textField')
 };
 
 /**

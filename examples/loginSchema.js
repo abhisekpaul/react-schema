@@ -35,7 +35,7 @@ module.exports = {
       "questionId" : "email",
       "question" : "Email Address",
       "input" : {
-        "type" : "materialTextInput",
+        "type" : "materialTextField",
         "placeholder" : "Email Address",
         "required" : true
       },

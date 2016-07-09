@@ -1,6 +1,6 @@
 var React = require('react');
-import baseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import themeManager from 'material-ui/styles/themeManager';
 var _     = require('lodash').noConflict();
 
 var QuestionPanel = require('./questionPanel');
@@ -52,7 +52,7 @@ class Winterfell extends React.Component {
   }
   getChildContext() {
     return {
-      muiTheme: getMuiTheme(baseTheme)
+      muiTheme: themeManager.getCurrentTheme()
     };
   }
 
