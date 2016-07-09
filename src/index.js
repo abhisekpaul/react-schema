@@ -52,7 +52,7 @@ class Winterfell extends React.Component {
   }
   getChildContext() {
     return {
-      muiTheme: themeManager.getCurrentTheme()
+      muiTheme: this.props.muiTheme || getMuiTheme(),
     };
   }
 

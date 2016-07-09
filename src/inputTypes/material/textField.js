@@ -1,7 +1,7 @@
 import React from 'react';
 import TextField from 'material-ui/TextField';
 
-class MaterialTextInput extends React.Component {
+class MaterialTextField extends React.Component {
 
   constructor(props){
     super(props);
@@ -23,4 +23,4 @@ class MaterialTextInput extends React.Component {
     }
   }
 
-module.exports = MaterialTextInput;
+module.exports = MaterialTextField;
