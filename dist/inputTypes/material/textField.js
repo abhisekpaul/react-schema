@@ -20,33 +20,25 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var MaterialTextInput = function (_React$Component) {
-  _inherits(MaterialTextInput, _React$Component);
+var MaterialTextField = function (_React$Component) {
+  _inherits(MaterialTextField, _React$Component);
 
-  function MaterialTextInput(props) {
-    _classCallCheck(this, MaterialTextInput);
+  function MaterialTextField(props) {
+    _classCallCheck(this, MaterialTextField);
 
-    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(MaterialTextInput).call(this, props));
-
-    _this.state = {
-      value: ''
-    };
-
-    return _this;
+    return _possibleConstructorReturn(this, Object.getPrototypeOf(MaterialTextField).call(this, props));
   }
 
-  _createClass(MaterialTextInput, [{
+  _createClass(MaterialTextField, [{
     key: 'render',
     value: function render() {
-      var value = this.state.value || '';
       return _react2.default.createElement(_TextField2.default, _extends({
-        id: this.props.id,
-        className: this.props.classes.materialInput
+        id: this.props.id
       }, this.props));
     }
   }]);
 
-  return MaterialTextInput;
+  return MaterialTextField;
 }(_react2.default.Component);
 
-module.exports = MaterialTextInput;
+module.exports = MaterialTextField;

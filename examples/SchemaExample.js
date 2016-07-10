@@ -13,8 +13,7 @@ class SchemaExample extends React.Component{
       muiTheme: this.props.muiTheme || getMuiTheme(),
     };
   }
-
-
+  
   constructor(props, context){
     super(props, context);
   }

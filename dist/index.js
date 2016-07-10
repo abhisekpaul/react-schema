@@ -65,13 +65,6 @@ var Winterfell = function (_React$Component) {
   }
 
   _createClass(Winterfell, [{
-    key: 'getChildContext',
-    value: function getChildContext() {
-      return {
-        muiTheme: _themeManager2.default.getCurrentTheme()
-      };
-    }
-  }, {
     key: 'componentWillReceiveProps',
     value: function componentWillReceiveProps(nextProps) {
       this.setState({
@@ -186,9 +179,6 @@ var Winterfell = function (_React$Component) {
   return Winterfell;
 }(React.Component);
 
-Winterfell.childContextTypes = {
-  muiTheme: React.PropTypes.object
-};
 ;
 
 // @todo: Proptypes
