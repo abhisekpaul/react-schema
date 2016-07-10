@@ -6,6 +6,9 @@ var SchemaExample = require('./SchemaExample');
 var schema      = require('./schema');
 var loginSchema = require('./loginSchema');
 
+var injectTapEventPlugin = require("react-tap-event-plugin");
+injectTapEventPlugin();
+
 var onRender = () => {
   console.log('Great news! React schema rendered successfully');
 };

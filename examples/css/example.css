@@ -328,3 +328,9 @@ pre.line-numbers > code {
       padding-right: 0.8em;
       text-align: right;
     }
+
+.geosuggest__suggests--hidden {
+  max-height: 0;
+  overflow: hidden;
+  border-width: 0;
+}

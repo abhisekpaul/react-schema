@@ -23,6 +23,10 @@ Winterfell uses a JSON schema to render your form. We will go through that later
 var Winterfell = require('winterfell');
 var schema     = require('./schema');
 
+//for material ui
+var injectTapEventPlugin = require("react-tap-event-plugin");
+injectTapEventPlugin();
+
 React.render(
   <Winterfell schema={schema} />,
   document.getElementById('form')
