@@ -17,7 +17,6 @@ class MaterialTextField extends React.Component {
     return (
       <TextField
         id={this.props.id}
-        className={this.props.classes.materialInput}
           {...this.props}/>
       );
     }
