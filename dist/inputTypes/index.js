@@ -15,7 +15,11 @@ var inputTypes = {
   selectInput: require('./selectInput'),
   textareaInput: require('./textareaInput'),
   textInput: require('./textInput'),
-  materialTextField: require('./material/textField')
+  materialTextField: require('./material/text-field'),
+  MaterialDatePicker: require('./material/date-picker'),
+  MaterialSelectField: require('./material/select-field'),
+  MultiSelect: require('./multi-select'),
+  LocationInput: require('./location-input')
 };
 
 /**
