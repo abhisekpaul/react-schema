@@ -2,6 +2,10 @@
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
+var _reactDom = require('react-dom');
+
+var _reactDom2 = _interopRequireDefault(_reactDom);
+
 var _getMuiTheme = require('material-ui/styles/getMuiTheme');
 
 var _getMuiTheme2 = _interopRequireDefault(_getMuiTheme);
@@ -125,8 +129,18 @@ var Winterfell = function (_React$Component) {
       this.setState({
         action: action
       }, function () {
-        React.findDOMNode(_this2.refs[_this2.props.ref]).submit();
+        _reactDom2.default.findDOMNode(_this2.refs[_this2.props.ref]).submit();
       });
+    }
+  }, {
+    key: 'submitForm',
+    value: function submitForm() {
+      this.refs["questionPanel"].submitForm();
+    }
+  }, {
+    key: 'backForm',
+    value: function backForm() {
+      this.refs["questionPanel"].backForm();
     }
   }, {
     key: 'render',
@@ -148,6 +162,7 @@ var Winterfell = function (_React$Component) {
           'div',
           { className: this.state.schema.classes.questionPanels },
           React.createElement(QuestionPanel, { schema: this.state.schema,
+            ref: 'questionPanel',
             classes: this.state.schema.classes,
             panelId: currentPanel.panelId,
             panelIndex: currentPanel.panelIndex,
@@ -155,6 +170,7 @@ var Winterfell = function (_React$Component) {
             panelText: currentPanel.panelText,
             action: currentPanel.action,
             button: currentPanel.button,
+            disableDefaultButton: currentPanel.disableDefaultButton,
             backButton: currentPanel.backButton,
             questionSets: currentPanel.questionSets,
             questionAnswers: this.state.questionAnswers,

@@ -173,6 +173,30 @@ var QuestionPanel = function (_React$Component) {
       }
     }
   }, {
+    key: 'renderDefaultButtons',
+    value: function renderDefaultButtons() {
+      return React.createElement(
+        'div',
+        { className: this.props.classes.buttonBar },
+        this.props.panelHistory.length > 1 && !this.props.backButton.disabled ? React.createElement(Button, { text: this.props.backButton.text || 'Back',
+          onClick: this.handleBackButtonClick.bind(this),
+          className: this.props.classes.backButton }) : undefined,
+        !this.props.button.disabled ? React.createElement(Button, { text: this.props.button.text,
+          onClick: this.handleMainButtonClick.bind(this),
+          className: this.props.classes.controlButton }) : undefined
+      );
+    }
+  }, {
+    key: 'submitForm',
+    value: function submitForm() {
+      this.handleMainButtonClick();
+    }
+  }, {
+    key: 'backForm',
+    value: function backForm() {
+      this.handleBackButtonClick();
+    }
+  }, {
     key: 'render',
     value: function render() {
       var _this4 = this;
@@ -224,16 +248,7 @@ var QuestionPanel = function (_React$Component) {
           { className: this.props.classes.questionSets },
           questionSets
         ),
-        React.createElement(
-          'div',
-          { className: this.props.classes.buttonBar },
-          this.props.panelHistory.length > 1 && !this.props.backButton.disabled ? React.createElement(Button, { text: this.props.backButton.text || 'Back',
-            onClick: this.handleBackButtonClick.bind(this),
-            className: this.props.classes.backButton }) : undefined,
-          !this.props.button.disabled ? React.createElement(Button, { text: this.props.button.text,
-            onClick: this.handleMainButtonClick.bind(this),
-            className: this.props.classes.controlButton }) : undefined
-        )
+        !this.props.disableDefaultButton ? this.renderDefaultButtons() : null
       );
     }
   }]);
@@ -244,6 +259,7 @@ var QuestionPanel = function (_React$Component) {
 ;
 
 QuestionPanel.defaultProps = {
+  disableDefaultButton: false,
   validationErrors: {},
   schema: {},
   classes: {},
