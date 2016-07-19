@@ -1,4 +1,5 @@
 var React = require('react');
+import ReactDOM from 'react-dom';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import themeManager from 'material-ui/styles/themeManager';
 var _  = require('lodash').noConflict();
@@ -105,9 +106,17 @@ class Winterfell extends React.Component {
     this.setState({
       action : action
     }, () => {
-      React.findDOMNode(this.refs[this.props.ref])
+      ReactDOM.findDOMNode(this.refs[this.props.ref])
            .submit();
     });
+  }
+
+  submitForm() {
+    this.refs["questionPanel"].submitForm();
+  }
+
+  backForm() {
+    this.refs["questionPanel"].backForm();
   }
 
   render() {
@@ -122,6 +131,7 @@ class Winterfell extends React.Component {
             className={this.state.schema.classes.form}>
         <div className={this.state.schema.classes.questionPanels}>
           <QuestionPanel schema={this.state.schema}
+                         ref="questionPanel"
                          classes={this.state.schema.classes}
                          panelId={currentPanel.panelId}
                          panelIndex={currentPanel.panelIndex}
@@ -129,6 +139,7 @@ class Winterfell extends React.Component {
                          panelText={currentPanel.panelText}
                          action={currentPanel.action}
                          button={currentPanel.button}
+                         disableDefaultButton={currentPanel.disableDefaultButton}
                          backButton={currentPanel.backButton}
                          questionSets={currentPanel.questionSets}
                          questionAnswers={this.state.questionAnswers}

@@ -39,15 +39,15 @@ window.onload = function() {
     document.getElementById('login-form')
   );
 
-  ReactDOM.render(
-    <SchemaExample schema={schema}
-                disableSubmit={true}
-                onRender={onRender}
-                onUpdate={onUpdate}
-                onSwitchPanel={onSwitchPanel}
-                onSubmit={onSubmit} />,
-    document.getElementById('form')
-  );
+  // ReactDOM.render(
+  //   <SchemaExample schema={schema}
+  //               disableSubmit={true}
+  //               onRender={onRender}
+  //               onUpdate={onUpdate}
+  //               onSwitchPanel={onSwitchPanel}
+  //               onSubmit={onSubmit} />,
+  //   document.getElementById('form')
+  // );
 
   /*
    * JSON View

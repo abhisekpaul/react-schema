@@ -13,15 +13,22 @@ class SchemaExample extends React.Component{
       muiTheme: this.props.muiTheme || getMuiTheme(),
     };
   }
-  
+
   constructor(props, context){
     super(props, context);
+  }
+
+  onNextClick(e) {
+    this.refs["myform"].submitForm();
   }
 
   render() {
 
     return(
-      <Winterfell {...this.props} />
+      <div>
+        <Winterfell {...this.props} ref="myform"/>
+        <button ref="nextButton" onClick={this.onNextClick.bind(this)}>This is a custom next button</button>
+      </div>
     );
   }
 }

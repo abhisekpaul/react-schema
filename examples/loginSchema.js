@@ -13,6 +13,7 @@ module.exports = {
     "panelId" : "register-panel"
   }],
   "questionPanels" : [{
+    "disableDefaultButton":true,
     "panelId" : "register-panel",
     "panelHeader" : "Log in to MyAwesomeSite",
     "panelText" : "Please enter your email address and password to log in.",
@@ -91,7 +92,7 @@ module.exports = {
           ],
           "props":{
             "fullWidth":true,
-            "hintText":"Enter job ty"
+            "hintText":"Enter job type"
           }
        },
        "validations":[
@@ -162,10 +163,7 @@ module.exports = {
             "radius":20,
             "initialValue":""
           }
-       },
-       "validations" : [{
-         "type" : "isDate"
-       }]
+       }
     }]
   }]
 };

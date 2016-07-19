@@ -159,6 +159,34 @@ class QuestionPanel extends React.Component {
     }
   }
 
+  renderDefaultButtons() {
+    return (<div className={this.props.classes.buttonBar}>
+      {this.props.panelHistory.length > 1
+        && !this.props.backButton.disabled
+        ? (
+            <Button text={this.props.backButton.text || 'Back'}
+                    onClick={this.handleBackButtonClick.bind(this)}
+                    className={this.props.classes.backButton} />
+          )
+        : undefined}
+      {!this.props.button.disabled
+        ? (
+            <Button text={this.props.button.text}
+                    onClick={this.handleMainButtonClick.bind(this)}
+                    className={this.props.classes.controlButton} />
+          )
+        : undefined}
+    </div>);
+  }
+
+  submitForm() {
+    this.handleMainButtonClick();
+  }
+
+  backForm() {
+    this.handleBackButtonClick();
+  }
+
   render() {
     var questionSets = this.props.questionSets.map(questionSetMeta => {
       var questionSet = _.find(this.props.schema.questionSets, {
@@ -213,23 +241,9 @@ class QuestionPanel extends React.Component {
         <div className={this.props.classes.questionSets}>
           {questionSets}
         </div>
-        <div className={this.props.classes.buttonBar}>
-          {this.props.panelHistory.length > 1
-            && !this.props.backButton.disabled
-            ? (
-                <Button text={this.props.backButton.text || 'Back'}
-                        onClick={this.handleBackButtonClick.bind(this)}
-                        className={this.props.classes.backButton} />
-              )
-            : undefined}
-          {!this.props.button.disabled
-            ? (
-                <Button text={this.props.button.text}
-                        onClick={this.handleMainButtonClick.bind(this)}
-                        className={this.props.classes.controlButton} />
-              )
-            : undefined}
-        </div>
+        {
+          !this.props.disableDefaultButton ? this.renderDefaultButtons() : null
+        }
       </div>
     );
   }
@@ -237,6 +251,7 @@ class QuestionPanel extends React.Component {
 };
 
 QuestionPanel.defaultProps = {
+  disableDefaultButton   : false,
   validationErrors       : {},
   schema                 : {},
   classes                : {},
