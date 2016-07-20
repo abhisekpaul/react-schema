@@ -26,6 +26,10 @@ var extraValidators = {
     return _.every(value, function (item) {
       return options.indexOf(item) > -1;
     });
+  },
+
+  isLocation: function isLocation(value) {
+    return value && value.location && value.location.lat && value.location.lng;
   }
 
 };

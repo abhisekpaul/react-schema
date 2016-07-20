@@ -163,7 +163,12 @@ module.exports = {
             "radius":20,
             "initialValue":""
           }
-       }
+       },
+       "validations":[
+          {
+             "type":"isLocation"
+          }
+       ]
     }]
   }]
 };

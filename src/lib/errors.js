@@ -141,7 +141,9 @@ var errorMessages = {
   /*
    * isAccepted - checkbox
    */
-  isAccepted     : 'Please accept by clicking the checkbox'
+  isAccepted     : 'Please accept by clicking the checkbox',
+
+  isLocation        : 'Please select a valid location from the dropdown',
 };
 
 /**
