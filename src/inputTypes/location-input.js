@@ -31,12 +31,13 @@ class LocationInput extends React.Component {
   };
 
   render() {
+    let location = google && new google.maps.LatLng(53.558572, 9.9278215);
     return (
       <Geosuggest
         inputClassName={this.props.classes.input}
         initialValue={this.props.initialValue}
         onSuggestSelect={this.handleChange.bind(this)}
-        location={new google.maps.LatLng(53.558572, 9.9278215)}
+        location={location}
         radius={this.props.radius}
         country={this.props.country}
         autoActivateFirstSuggest={this.props.autoActivateFirstSuggest}
