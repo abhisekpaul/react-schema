@@ -31,6 +31,8 @@ class LocationInput extends React.Component {
   };
 
   render() {
+    if(!google) return null;
+
     let location = google && new google.maps.LatLng(53.558572, 9.9278215);
     return (
       <Geosuggest

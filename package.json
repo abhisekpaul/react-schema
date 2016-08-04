@@ -1,6 +1,6 @@
 {
   "name": "react-schema",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "Generate complex, validated and extendable JSON-based forms in React",
   "main": "dist/index.js",
   "scripts": {

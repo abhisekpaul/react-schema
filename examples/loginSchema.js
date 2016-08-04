@@ -38,7 +38,8 @@ module.exports = {
       "input" : {
         "type" : "materialTextField",
         "placeholder" : "Email Address",
-        "required" : true
+        "required" : true,
+        "default" : "abhisekpaul@gmail.com"
       },
       "validations" : [{
         "type" : "isEmail"
