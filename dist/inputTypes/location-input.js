@@ -43,6 +43,7 @@ var LocationInput = function (_React$Component) {
   _createClass(LocationInput, [{
     key: 'render',
     value: function render() {
+      var google = window.google;
       if (!google) return null;
 
       var location = google && new google.maps.LatLng(53.558572, 9.9278215);
