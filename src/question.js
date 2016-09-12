@@ -169,7 +169,7 @@ Question.defaultProps = {
   questionSetId          : undefined,
   questionId             : undefined,
   question               : '',
-  validateOn             : 'blur',
+  validateOn             : 'submit',
   validations            : [],
   text                   : undefined,
   postText               : undefined,
