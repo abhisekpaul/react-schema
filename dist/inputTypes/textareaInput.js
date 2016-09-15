@@ -16,7 +16,7 @@ var TextareaInput = function (_React$Component) {
   function TextareaInput(props) {
     _classCallCheck(this, TextareaInput);
 
-    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(TextareaInput).call(this, props));
+    var _this = _possibleConstructorReturn(this, (TextareaInput.__proto__ || Object.getPrototypeOf(TextareaInput)).call(this, props));
 
     _this.state = {
       value: _this.props.value

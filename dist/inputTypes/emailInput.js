@@ -16,7 +16,7 @@ var EmailInput = function (_React$Component) {
   function EmailInput(props) {
     _classCallCheck(this, EmailInput);
 
-    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(EmailInput).call(this, props));
+    var _this = _possibleConstructorReturn(this, (EmailInput.__proto__ || Object.getPrototypeOf(EmailInput)).call(this, props));
 
     _this.state = {
       value: _this.props.value

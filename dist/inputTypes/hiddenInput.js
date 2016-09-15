@@ -16,7 +16,7 @@ var HiddenInput = function (_React$Component) {
   function HiddenInput(props) {
     _classCallCheck(this, HiddenInput);
 
-    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(HiddenInput).call(this, props));
+    var _this = _possibleConstructorReturn(this, (HiddenInput.__proto__ || Object.getPrototypeOf(HiddenInput)).call(this, props));
 
     _this.state = {
       value: _this.props.value

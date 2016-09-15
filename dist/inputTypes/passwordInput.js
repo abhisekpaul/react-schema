@@ -16,7 +16,7 @@ var PasswordInput = function (_React$Component) {
   function PasswordInput(props) {
     _classCallCheck(this, PasswordInput);
 
-    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(PasswordInput).call(this, props));
+    var _this = _possibleConstructorReturn(this, (PasswordInput.__proto__ || Object.getPrototypeOf(PasswordInput)).call(this, props));
 
     _this.state = {
       value: _this.props.value

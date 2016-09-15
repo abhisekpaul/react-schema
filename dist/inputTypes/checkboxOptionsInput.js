@@ -16,7 +16,7 @@ var CheckboxOptionsInput = function (_React$Component) {
   function CheckboxOptionsInput(props) {
     _classCallCheck(this, CheckboxOptionsInput);
 
-    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(CheckboxOptionsInput).call(this, props));
+    var _this = _possibleConstructorReturn(this, (CheckboxOptionsInput.__proto__ || Object.getPrototypeOf(CheckboxOptionsInput)).call(this, props));
 
     _this.state = {
       value: _this.props.value

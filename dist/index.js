@@ -34,7 +34,7 @@ var Winterfell = function (_React$Component) {
   function Winterfell(props) {
     _classCallCheck(this, Winterfell);
 
-    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Winterfell).call(this, props));
+    var _this = _possibleConstructorReturn(this, (Winterfell.__proto__ || Object.getPrototypeOf(Winterfell)).call(this, props));
 
     _this.panelHistory = [];
 

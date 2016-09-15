@@ -26,7 +26,7 @@ var LocationInput = function (_React$Component) {
   function LocationInput(props) {
     _classCallCheck(this, LocationInput);
 
-    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(LocationInput).call(this, props));
+    var _this = _possibleConstructorReturn(this, (LocationInput.__proto__ || Object.getPrototypeOf(LocationInput)).call(this, props));
 
     _this.handleChange = function (value) {
       _this.setState({

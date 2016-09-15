@@ -78,6 +78,12 @@
           </a>
         </li>
         <li role="presentation">
+          <a href="#login-render2"
+             data-toggle="tab">
+            Render2
+          </a>
+        </li>
+        <li role="presentation">
           <a href="#login-schema"
              data-toggle="tab">
             Schema
@@ -94,6 +100,10 @@
         <div id="login-render"
              class="tab-pane fade in active">
           <div id="login-form"></div>
+        </div>
+        <div id="login-render2"
+             class="tab-pane fade in active">
+          <div id="login-form2"></div>
         </div>
         <div id="login-schema"
              class="tab-pane fade">
@@ -184,6 +194,7 @@ window.onload = function() {
                 onUpdate={onUpdate} /&#x3E;,
     document.getElementById('login-form')
   );
+  
 };
 </code>
 </pre>
@@ -197,6 +208,12 @@ window.onload = function() {
           <a href="#render"
              data-toggle="tab">
             Render
+          </a>
+        </li>
+        <li role="presentation">
+          <a href="#render2"
+             data-toggle="tab">
+            Render2
           </a>
         </li>
         <li role="presentation">
@@ -216,6 +233,10 @@ window.onload = function() {
         <div id="render"
              class="tab-pane fade in active">
           <div id="form"></div>
+        </div>
+        <div id="render2"
+             class="tab-pane fade in active">
+          <div id="form2"></div>
         </div>
         <div id="schema"
              class="tab-pane fade">
@@ -560,14 +581,15 @@ var onSubmit = (questionAnswers, target) => {
 
 window.onload = function() {
   React.render(
-    &#x3C;Winterfell schema={schema}
+    Winterfell schema={schema}
                 disableSubmit={true}
                 onRender={onRender}
                 onUpdate={onUpdate}
                 onSwitchPanel={onSwitchPanel}
-                onSubmit={onSubmit} /&#x3E;,
+                onSubmit={onSubmit},
     document.getElementById('form')
   );
+  
 };
 </code>
 </pre>

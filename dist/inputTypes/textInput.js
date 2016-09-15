@@ -16,7 +16,7 @@ var TextInput = function (_React$Component) {
   function TextInput(props) {
     _classCallCheck(this, TextInput);
 
-    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(TextInput).call(this, props));
+    var _this = _possibleConstructorReturn(this, (TextInput.__proto__ || Object.getPrototypeOf(TextInput)).call(this, props));
 
     _this.state = {
       value: _this.props.value

@@ -16,7 +16,7 @@ var SelectInput = function (_React$Component) {
   function SelectInput(props) {
     _classCallCheck(this, SelectInput);
 
-    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(SelectInput).call(this, props));
+    var _this = _possibleConstructorReturn(this, (SelectInput.__proto__ || Object.getPrototypeOf(SelectInput)).call(this, props));
 
     _this.state = {
       value: _this.props.value

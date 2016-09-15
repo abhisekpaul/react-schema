@@ -26,7 +26,7 @@ var MaterialTextField = function (_React$Component) {
   function MaterialTextField(props) {
     _classCallCheck(this, MaterialTextField);
 
-    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(MaterialTextField).call(this, props));
+    var _this = _possibleConstructorReturn(this, (MaterialTextField.__proto__ || Object.getPrototypeOf(MaterialTextField)).call(this, props));
 
     _this.handleChange = function (event) {
       _this.setState({

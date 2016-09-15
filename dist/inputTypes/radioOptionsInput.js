@@ -16,7 +16,7 @@ var RadioOptionsInput = function (_React$Component) {
   function RadioOptionsInput(props) {
     _classCallCheck(this, RadioOptionsInput);
 
-    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(RadioOptionsInput).call(this, props));
+    var _this = _possibleConstructorReturn(this, (RadioOptionsInput.__proto__ || Object.getPrototypeOf(RadioOptionsInput)).call(this, props));
 
     _this.state = {
       value: _this.props.value

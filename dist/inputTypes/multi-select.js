@@ -26,7 +26,7 @@ var MultiSelect = function (_React$Component) {
   function MultiSelect(props) {
     _classCallCheck(this, MultiSelect);
 
-    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(MultiSelect).call(this, props));
+    var _this = _possibleConstructorReturn(this, (MultiSelect.__proto__ || Object.getPrototypeOf(MultiSelect)).call(this, props));
 
     _this.handleChange = function (value) {
       _this.setState({

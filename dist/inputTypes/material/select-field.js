@@ -30,7 +30,7 @@ var MaterialSelectField = function (_React$Component) {
   function MaterialSelectField(props) {
     _classCallCheck(this, MaterialSelectField);
 
-    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(MaterialSelectField).call(this, props));
+    var _this = _possibleConstructorReturn(this, (MaterialSelectField.__proto__ || Object.getPrototypeOf(MaterialSelectField)).call(this, props));
 
     _this.handleChange = function (event, index, value) {
       _this.setState({

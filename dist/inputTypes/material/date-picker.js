@@ -26,7 +26,7 @@ var MaterialDatePicker = function (_React$Component) {
   function MaterialDatePicker(props) {
     _classCallCheck(this, MaterialDatePicker);
 
-    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(MaterialDatePicker).call(this, props));
+    var _this = _possibleConstructorReturn(this, (MaterialDatePicker.__proto__ || Object.getPrototypeOf(MaterialDatePicker)).call(this, props));
 
     _this.handleChange = function (event, date) {
       _this.setState({

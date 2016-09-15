@@ -19,7 +19,7 @@ var QuestionSet = function (_React$Component) {
   function QuestionSet() {
     _classCallCheck(this, QuestionSet);
 
-    return _possibleConstructorReturn(this, Object.getPrototypeOf(QuestionSet).apply(this, arguments));
+    return _possibleConstructorReturn(this, (QuestionSet.__proto__ || Object.getPrototypeOf(QuestionSet)).apply(this, arguments));
   }
 
   _createClass(QuestionSet, [{

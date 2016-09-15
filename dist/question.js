@@ -21,7 +21,7 @@ var Question = function (_React$Component) {
   function Question() {
     _classCallCheck(this, Question);
 
-    return _possibleConstructorReturn(this, Object.getPrototypeOf(Question).apply(this, arguments));
+    return _possibleConstructorReturn(this, (Question.__proto__ || Object.getPrototypeOf(Question)).apply(this, arguments));
   }
 
   _createClass(Question, [{

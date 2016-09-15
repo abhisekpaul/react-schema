@@ -16,7 +16,7 @@ var FileInput = function (_React$Component) {
   function FileInput(props) {
     _classCallCheck(this, FileInput);
 
-    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(FileInput).call(this, props));
+    var _this = _possibleConstructorReturn(this, (FileInput.__proto__ || Object.getPrototypeOf(FileInput)).call(this, props));
 
     _this.state = {
       value: _this.props.value

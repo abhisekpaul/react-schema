@@ -44,7 +44,21 @@ module.exports = {
       "validations" : [{
         "type" : "isEmail"
       }]
-    }, {
+    }, 
+    {
+      "questionId" : "email2",
+      "question" : "Email Address2",
+      "input" : {
+        "type" : "textInput",
+        "placeholder" : "Email Address",
+        "required" : true,
+        "default" : "abhisekpaul@gmail.com123"
+      },
+      "validations" : [{
+        "type" : "isEmail"
+      }]
+    },
+    {
       "questionId" : "password",
       "question" : "Password",
       "input" : {

@@ -24,7 +24,7 @@ var QuestionPanel = function (_React$Component) {
   function QuestionPanel(props) {
     _classCallCheck(this, QuestionPanel);
 
-    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(QuestionPanel).call(this, props));
+    var _this = _possibleConstructorReturn(this, (QuestionPanel.__proto__ || Object.getPrototypeOf(QuestionPanel)).call(this, props));
 
     _this.state = {
       validationErrors: _this.props.validationErrors
