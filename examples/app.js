@@ -8,6 +8,7 @@ var SchemaExample = require('./SchemaExample');
 var schema      = require('./schema');
 var loginSchema = require('./loginSchema');
 var loginSchema2 = null;
+var questionAnswers = []
 
 var injectTapEventPlugin = require("react-tap-event-plugin");
 injectTapEventPlugin();
@@ -21,6 +22,7 @@ var onClick = () => {
     ReactDOM.render(
     <div>
           <SchemaExample schema={loginSchema2}
+                      questionAnswers={questionAnswers}
                       onRender={onRender}
                       onUpdate={onUpdate}
                       renderRequiredAsterisk={() => <span>{'*'}</span>} />
@@ -47,16 +49,17 @@ var onSubmit = (questionAnswers, target) => {
 window.onload = function() {
   ReactDOM.render(
     <div>
-    <button onClick={onClick}>click me</button>
-          <SchemaExample schema={loginSchema}
-                      onRender={onRender}
-                      onUpdate={onUpdate}
-                      renderRequiredAsterisk={() => <span>{'*'}</span>} />
-          
+      <button onClick={onClick}>click me</button>
+      <SchemaExample schema={loginSchema}
+                  onRender={onRender}
+                  onUpdate={onUpdate}
+                  disableSubmit={true}
+                  renderRequiredAsterisk={() => <span>{'*'}</span>} />
+
     </div>,
     document.getElementById('login-form')
   );
-  
+
 
   // ReactDOM.render(
   //   <SchemaExample schema={schema}

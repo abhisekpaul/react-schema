@@ -39,7 +39,10 @@ class MultiSelect extends React.Component {
     });
     return (
       <Select
-        {...this.props}
+        id={this.props.id}
+        multi={this.props.multi}
+        simpleValue={this.props.simpleValue}
+        placeholder={this.props.placeholder}
         value={this.state.value}
         options={options}
         onChange={this.handleChange.bind(this)}

@@ -167,7 +167,7 @@ var QuestionPanel = function (_React$Component) {
   }, {
     key: 'handleInputKeyDown',
     value: function handleInputKeyDown(e) {
-      if (KeyCodez[e.keyCode] === 'enter') {
+      if (KeyCodez[e.keyCode] === 'enter' && !this.props.disableSubmit) {
         e.preventDefault();
         this.handleMainButtonClick.call(this);
       }
@@ -284,7 +284,8 @@ QuestionPanel.defaultProps = {
   onAnswerChange: function onAnswerChange() {},
   onSwitchPanel: function onSwitchPanel() {},
   onPanelBack: function onPanelBack() {},
-  panelHistory: []
+  panelHistory: [],
+  disableSubmit: false
 };
 
 module.exports = QuestionPanel;

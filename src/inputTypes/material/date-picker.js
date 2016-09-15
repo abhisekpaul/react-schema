@@ -32,7 +32,10 @@ class MaterialDatePicker extends React.Component {
 
   render() {
     return (
-      <DatePicker {...this.props}
+      <DatePicker
+        id={this.props.id}
+        fullWidth={this.props.fullWidth}
+        hintText={this.props.hintText}
         value={this.state.value}
         onChange={this.handleChange.bind(this)}
         onBlur={this.props.onBlur.bind(null, this.state.value)}

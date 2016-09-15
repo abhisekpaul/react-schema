@@ -32,7 +32,13 @@ class MaterialTextField extends React.Component {
 
   render() {
     return (
-      <TextField {...this.props}
+      <TextField
+        id={this.props.id}
+        fullWidth={this.props.fullWidth}
+        multiLine={this.props.multiLine}
+        rows={this.props.rows}
+        hintText={this.props.hintText}
+        floatingLabelText={this.props.floatingLabelText}
         value={this.state.value}
         onChange={this.handleChange.bind(this)}
         onBlur={this.props.onBlur.bind(null, this.state.value)}

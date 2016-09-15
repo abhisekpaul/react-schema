@@ -44,7 +44,7 @@ module.exports = {
       "validations" : [{
         "type" : "isEmail"
       }]
-    }, 
+    },
     {
       "questionId" : "email2",
       "question" : "Email Address2",
@@ -57,6 +57,29 @@ module.exports = {
       "validations" : [{
         "type" : "isEmail"
       }]
+    },
+    {
+      "questionId":"description",
+      "input":{
+        "name":"description",
+        "type":"materialTextField",
+        "required":true,
+        "props":{
+          "fullWidth":true,
+          "multiLine":true,
+          "rows":6,
+          "hintText":"Enter your job requirements",
+          "floatingLabelText":"Job Requirements"
+        }
+      },
+      "validations":[
+        {
+          "type":"isLength",
+          "params":[
+            25
+          ]
+        }
+      ]
     },
     {
       "questionId" : "password",
