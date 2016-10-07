@@ -43,6 +43,7 @@ var MaterialTextField = function (_React$Component) {
     value: function render() {
       return _react2.default.createElement(_TextField2.default, {
         id: this.props.id,
+        type: this.props.type,
         fullWidth: this.props.fullWidth,
         multiLine: this.props.multiLine,
         rows: this.props.rows,
@@ -51,7 +52,8 @@ var MaterialTextField = function (_React$Component) {
         value: this.state.value,
         onChange: this.handleChange.bind(this),
         onBlur: this.props.onBlur.bind(null, this.state.value),
-        onKeyDown: this.props.onKeyDown });
+        onKeyDown: this.props.onKeyDown
+      });
     }
   }]);
 

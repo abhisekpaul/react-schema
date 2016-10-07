@@ -9,25 +9,27 @@ var gutil = require('gulp-util');
 var notify = require("gulp-notify");
 var transform = require('vinyl-transform');
 var watchify = require('watchify');
+var through2 = require('through2');
+
+var notifyMessage = function (filename) {
+  gutil.log(gutil.colors.green('√') + ' ' + filename);
+};
+
 
 gulp.task('default', function () {
 
-  gutil.log("Begining browseriy source");
-
-  var notifyMessage = function (filename) {
-    gutil.log(gutil.colors.green('√') + ' ' + filename);
-  };
+  gutil.log("Begining browseriy source: " + source_dir );
 
   var cache   = {};
+  var source_dir = "src";
+  var target_dir = "dist/";
 
   var bundle = function (check) {
 
-    var stream = gulp.src(['examples/app.js'])
+    var stream = gulp.src([source_dir + '/index.js'])
     .pipe(bundler({ cache: {}, packageCache: {}, debug:true, delay: 1000}))
-    .on('error', function (error){
-      notify().write(error);
-    })
-    .pipe(gulp.dest('examples/build'));
+    .on('error', notify.onError("Error: <%= error.message %>"))
+    .pipe(gulp.dest(target_dir));
 
     stream.on('end', function() {
       notify().write('Browserify Bundling finished.');
@@ -37,31 +39,44 @@ gulp.task('default', function () {
   };
 
   var bundler = function (options) {
+    return through2.obj(function (file, enc, next) {
+      if (cache[file.path]) {
+        return cache[file.path].bundle(function(err, res){
+            file.contents = res;
+            next(null, file);
+          });
+      } else {
+        var b = browserify(file.path, options);
+        b.on('log', gutil.log);
+        b.external('react');
+        b.external('react-dom');
+        b.external('react-addons-shallow-compare');
+        b.external('jquery');
 
-    return transform(function(filename) {
-      if (cache[filename]) {
-        return cache[filename].bundle();
+        b.on('bundle', notifyMessage.bind(null, 'BUNDLE ' + file.path));
+
+        // for watch
+        b = watchify(b,{delay:900});
+        b.on('update', bundle.bind(null, true));
+        cache[file.path] = b;
+
+        b.bundle(function(err, res){
+            if(err) {
+              gutil.log(err, '', gutil.colors.magenta('123'));
+              next(err, file);
+            } else {
+              file.contents = res;
+              next(null, file);
+            }
+          });
       }
-
-      var b = browserify(options);
-
-      b.on('log', gutil.log);
-      b.add(filename);
-
-      b.on('bundle', notifyMessage.bind(null, 'BUNDLE ' + filename));
-
-      b = watchify(b);
-
-      b.on('update', bundle.bind(null, true));
-
-      cache[filename] = b;
-
-      return b.bundle();
     });
   };
   return bundle(false);
 
 });
+
+
 
 /**
  * Examples Build

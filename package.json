@@ -35,6 +35,8 @@
     "keycodez": "^1.0.0",
     "lodash": "^3.10.1",
     "material-ui": "^0.15.4",
+    "react-addons-shallow-compare": "^15.3.2",
+    "react-dom": "^15.3.2",
     "react-geosuggest": "^1.24.1",
     "react-select": "1.0.0-beta13",
     "validator": "^4.0.5"
@@ -59,6 +61,7 @@
     "react-router": "^2.8.1",
     "react-tap-event-plugin": "^1.0.0",
     "rimraf": "^2.4.3",
+    "through2": "^2.0.1",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0",
     "vinyl-transform": "^1.0.0",
