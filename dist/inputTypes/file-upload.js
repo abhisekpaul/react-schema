@@ -1,16 +1,14 @@
 'use strict';
 
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _DatePicker = require('material-ui/DatePicker');
+var _reactDropzone = require('react-dropzone');
 
-var _DatePicker2 = _interopRequireDefault(_DatePicker);
+var _reactDropzone2 = _interopRequireDefault(_reactDropzone);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -20,18 +18,18 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var MaterialDatePicker = function (_React$Component) {
-  _inherits(MaterialDatePicker, _React$Component);
+var FileUpload = function (_React$Component) {
+  _inherits(FileUpload, _React$Component);
 
-  function MaterialDatePicker(props) {
-    _classCallCheck(this, MaterialDatePicker);
+  function FileUpload(props) {
+    _classCallCheck(this, FileUpload);
 
-    var _this = _possibleConstructorReturn(this, (MaterialDatePicker.__proto__ || Object.getPrototypeOf(MaterialDatePicker)).call(this, props));
+    var _this = _possibleConstructorReturn(this, (FileUpload.__proto__ || Object.getPrototypeOf(FileUpload)).call(this, props));
 
-    _this.handleChange = function (event, date) {
+    _this.onDrop = function (files) {
       _this.setState({
-        value: date
-      }, _this.props.onChange.bind(null, date));
+        value: files
+      }, _this.props.onChange.bind(null, files));
     };
 
     _this.state = {
@@ -40,35 +38,56 @@ var MaterialDatePicker = function (_React$Component) {
     return _this;
   }
 
-  _createClass(MaterialDatePicker, [{
+  _createClass(FileUpload, [{
     key: 'render',
     value: function render() {
-      return _react2.default.createElement(_DatePicker2.default, _extends({
-        id: this.props.id,
-        fullWidth: this.props.fullWidth,
-        hintText: this.props.hintText,
-        value: this.state.value,
-        onChange: this.handleChange.bind(this),
-        onBlur: this.props.onBlur.bind(null, this.state.value),
-        onKeyDown: this.props.onKeyDown
-      }, this.props));
+      return _react2.default.createElement(
+        'div',
+        null,
+        _react2.default.createElement(
+          _reactDropzone2.default,
+          { onDrop: this.onDrop, id: this.props.id, disableClick: this.props.disableClick,
+            multiple: this.props.multiple },
+          _react2.default.createElement(
+            'div',
+            null,
+            this.props.dropMessage
+          )
+        ),
+        this.state.value ? _react2.default.createElement(
+          'div',
+          null,
+          _react2.default.createElement(
+            'h2',
+            null,
+            'Uploading ',
+            this.state.value.length,
+            ' files...'
+          ),
+          _react2.default.createElement(
+            'div',
+            null,
+            this.state.value.map(function (file) {
+              return _react2.default.createElement('img', { src: file.preview });
+            })
+          )
+        ) : null
+      );
     }
   }]);
 
-  return MaterialDatePicker;
+  return FileUpload;
 }(_react2.default.Component);
 
-MaterialDatePicker.propTypes = {};
-MaterialDatePicker.defaultProps = {
+FileUpload.propTypes = {};
+FileUpload.defaultProps = {
   classes: {},
-  name: undefined,
-  id: undefined,
   value: undefined,
-  placeholder: undefined,
   onChange: function onChange() {},
-  onBlur: function onBlur() {},
-  onKeyDown: function onKeyDown() {}
+  dropMessage: 'Try dropping some files here, or click to select files to upload.',
+  disableClick: false,
+  multiple: false
 };
 
 
-module.exports = MaterialDatePicker;
+module.exports = FileUpload;

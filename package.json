@@ -37,6 +37,7 @@
     "material-ui": "^0.15.4",
     "react-addons-shallow-compare": "^15.3.2",
     "react-dom": "^15.3.2",
+    "react-dropzone": "^3.7.0",
     "react-geosuggest": "^1.24.1",
     "react-select": "1.0.0-beta13",
     "validator": "^4.0.5"

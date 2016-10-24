@@ -39,7 +39,8 @@ class MaterialDatePicker extends React.Component {
         value={this.state.value}
         onChange={this.handleChange.bind(this)}
         onBlur={this.props.onBlur.bind(null, this.state.value)}
-        onKeyDown={this.props.onKeyDown}/>
+        onKeyDown={this.props.onKeyDown}
+        {...this.props}/>
       );
     }
   }

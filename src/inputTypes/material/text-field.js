@@ -40,11 +40,12 @@ class MaterialTextField extends React.Component {
         rows={this.props.rows}
         hintText={this.props.hintText}
         floatingLabelText={this.props.floatingLabelText}
+        disabled={this.props.disabled}
         value={this.state.value}
         onChange={this.handleChange.bind(this)}
         onBlur={this.props.onBlur.bind(null, this.state.value)}
         onKeyDown={this.props.onKeyDown}
-        />
+        {...this.props}/>
       );
     }
   }

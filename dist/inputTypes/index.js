@@ -19,7 +19,9 @@ var inputTypes = {
   MaterialDatePicker: require('./material/date-picker'),
   MaterialSelectField: require('./material/select-field'),
   MultiSelect: require('./multi-select'),
-  LocationInput: require('./location-input')
+  LocationInput: require('./location-input'),
+  WeeklyCalendar: require('./weekly-calendar'),
+  FileUpload: require('./file-upload')
 };
 
 /**
