@@ -86,10 +86,10 @@ var WeeklyCalendar = function (_React$Component) {
 
       return _react2.default.createElement(
         'div',
-        { 'class': 'form-group col-lg-12' },
+        { className: 'form-group col-lg-12' },
         _react2.default.createElement(
           'table',
-          { 'class': 'table table-striped visible-md visible-lg' },
+          { className: 'table table-striped visible-md visible-lg' },
           _react2.default.createElement(
             'thead',
             null,
@@ -135,12 +135,19 @@ var WeeklyCalendar = function (_React$Component) {
   return WeeklyCalendar;
 }(_react2.default.Component);
 
-WeeklyCalendar.propTypes = {};
+WeeklyCalendar.propTypes = {
+  columns: _react2.default.PropTypes.array,
+  value: _react2.default.PropTypes.object,
+  rows: _react2.default.PropTypes.array,
+  onChange: _react2.default.PropTypes.func
+};
 WeeklyCalendar.defaultProps = {
   classes: {},
   name: undefined,
   id: undefined,
-  onChange: function onChange() {}
+  onChange: function onChange() {},
+  columns: [],
+  rows: []
 };
 
 

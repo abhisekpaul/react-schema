@@ -5,13 +5,19 @@ import {find, cloneDeep} from 'lodash';
 class WeeklyCalendar extends React.Component {
 
   static propTypes = {
+    columns: React.PropTypes.array,
+    value: React.PropTypes.object,
+    rows: React.PropTypes.array,
+    onChange:React.PropTypes.func
   };
 
   static defaultProps = {
     classes     : {},
     name        : undefined,
     id          : undefined,
-    onChange    : () => {}
+    onChange    : () => {},
+    columns     : [],
+    rows        : []
   };
 
   constructor(props){
@@ -23,9 +29,9 @@ class WeeklyCalendar extends React.Component {
 
   render() {
     return (
-      <div class="form-group col-lg-12">
+      <div className="form-group col-lg-12">
 
-      <table class="table table-striped visible-md visible-lg">
+      <table className="table table-striped visible-md visible-lg">
       <thead>
       <tr>
       {
