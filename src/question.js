@@ -122,7 +122,6 @@ class Question extends React.Component {
               </p>
             )
           : undefined}
-        {validationErrors}
         <Input name={this.props.questionId}
                id={this.props.questionId}
                labelId={labelId}
@@ -144,6 +143,7 @@ class Question extends React.Component {
               </p>
             )
           : undefined}
+        {validationErrors}
         {conditionalItems}
       </div>
     );

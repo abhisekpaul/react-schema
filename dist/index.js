@@ -181,7 +181,9 @@ var Winterfell = function (_React$Component) {
             onPanelBack: this.handleBackButtonClick.bind(this),
             onSwitchPanel: this.handleSwitchPanel.bind(this),
             onSubmit: this.handleSubmit.bind(this),
-            disableSubmit: this.props.disableSubmit })
+            disableSubmit: this.props.disableSubmit,
+            onError: this.props.onError,
+            onAnswerError: this.props.onAnswerError })
         )
       );
     }
@@ -218,7 +220,9 @@ Winterfell.defaultProps = {
   onSubmit: function onSubmit() {},
   onUpdate: function onUpdate() {},
   onSwitchPanel: function onSwitchPanel() {},
-  onRender: function onRender() {}
+  onRender: function onRender() {},
+  onAnswerError: undefined,
+  onError: undefined
 };
 
 Winterfell.inputTypes = require('./inputTypes');

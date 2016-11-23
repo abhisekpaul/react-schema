@@ -17,7 +17,7 @@ class Winterfell extends React.Component {
       classes        : {},
       formPanels     : [],
       questionPanels : [],
-      questionSets   : [],
+      questionSets   : []
     }, this.props.schema);
 
     schema.formPanels = schema.formPanels
@@ -94,6 +94,7 @@ class Winterfell extends React.Component {
   }
 
   handleSubmit(action) {
+
     if (this.props.disableSubmit) {
       this.props.onSubmit(this.state.questionAnswers, action);
       return;
@@ -150,7 +151,9 @@ class Winterfell extends React.Component {
                          onPanelBack={this.handleBackButtonClick.bind(this)}
                          onSwitchPanel={this.handleSwitchPanel.bind(this)}
                          onSubmit={this.handleSubmit.bind(this)}
-                        disableSubmit={this.props.disableSubmit} />
+                        disableSubmit={this.props.disableSubmit}
+                        onError={this.props.onError}
+                        onAnswerError={this.props.onAnswerError}/>
         </div>
       </form>
     );
@@ -183,7 +186,9 @@ Winterfell.defaultProps = {
   onSubmit               : () => {},
   onUpdate               : () => {},
   onSwitchPanel          : () => {},
-  onRender               : () => {}
+  onRender               : () => {},
+  onAnswerError          : undefined,
+  onError                : undefined
 };
 
 Winterfell.inputTypes    = require('./inputTypes');

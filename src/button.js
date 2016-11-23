@@ -1,4 +1,5 @@
 var React = require('react');
+import RaisedButton from 'material-ui/RaisedButton';
 
 class Button extends React.Component {
 
@@ -10,11 +11,9 @@ class Button extends React.Component {
 
   render() {
     return (
-      <button href="#"
-         className={this.props.className}
-         onClick={this.handleClick.bind(this)}>
-        {this.props.text}
-      </button>
+      <RaisedButton className={this.props.className}
+        label={this.props.text} primary={true}
+        onTouchTap={this.handleClick.bind(this)}/>
     );
   }
 

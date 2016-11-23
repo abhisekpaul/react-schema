@@ -387,6 +387,8 @@ onRender      | Fired when Winterfell has initially rendered   | N/A
 onUpdate      | Fired when a questions answer has been changed | `questionAnswers`
 onSwitchPanel | Fired when a panel is switched or changed      | `panel`
 onSubmit      | Fired when the form is submitted successfully  | `questionAnswers`, `action`
+onAnswerError | Fired on Answer is enterred with error         | `questionId`,`questionValidationErrors`
+onError       | Fired when there is an error on submit         | `validationErrors`
 
 
 

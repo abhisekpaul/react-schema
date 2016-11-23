@@ -59,6 +59,10 @@ var QuestionPanel = function (_React$Component) {
 
       var validationErrors = _.chain(this.state.validationErrors).set(questionId, questionValidationErrors).value();
 
+      if (questionValidationErrors && questionValidationErrors.length) {
+        this.props.onAnswerError && this.props.onAnswerError(questionId, questionValidationErrors);
+      }
+
       this.setState({
         validationErrors: validationErrors
       });
@@ -101,9 +105,12 @@ var QuestionPanel = function (_React$Component) {
           });
         });
 
+        this.props.onError && this.props.onError(validationErrors);
+
         this.setState({
           validationErrors: validationErrors
         });
+
         return;
       }
 
@@ -201,6 +208,18 @@ var QuestionPanel = function (_React$Component) {
     value: function render() {
       var _this4 = this;
 
+      var error = null;
+      if (this.props.schema.showErrorSummary) {
+        var isError = false;
+
+        for (var key in this.state.validationErrors) {
+          isError = isError || !_.isEmpty(this.state.validationErrors[key]);
+        }
+        if (isError) {
+          error = this.props.schema.summaryErrorMessage || 'There are errors in your input. Please correct them and submit again.';
+        }
+      }
+
       var questionSets = this.props.questionSets.map(function (questionSetMeta) {
         var questionSet = _.find(_this4.props.schema.questionSets, {
           questionSetId: questionSetMeta.questionSetId
@@ -243,6 +262,13 @@ var QuestionPanel = function (_React$Component) {
             this.props.panelText
           ) : undefined
         ) : undefined,
+        error && React.createElement(
+          'div',
+          { className: this.props.schema.classes.errorContainer },
+          '! ',
+          error,
+          ' '
+        ),
         React.createElement(
           'div',
           { className: this.props.classes.questionSets },
@@ -285,7 +311,9 @@ QuestionPanel.defaultProps = {
   onSwitchPanel: function onSwitchPanel() {},
   onPanelBack: function onPanelBack() {},
   panelHistory: [],
-  disableSubmit: false
+  disableSubmit: false,
+  onAnswerError: undefined,
+  onError: undefined
 };
 
 module.exports = QuestionPanel;

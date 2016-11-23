@@ -113,7 +113,6 @@ var Question = function (_React$Component) {
           { className: this.props.classes.questionText },
           this.props.text
         ) : undefined,
-        validationErrors,
         React.createElement(Input, _extends({ name: this.props.questionId,
           id: this.props.questionId,
           labelId: labelId,
@@ -132,6 +131,7 @@ var Question = function (_React$Component) {
           { className: this.props.classes.questionPostText },
           this.props.postText
         ) : undefined,
+        validationErrors,
         conditionalItems
       );
     }

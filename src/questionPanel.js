@@ -47,6 +47,10 @@ class QuestionPanel extends React.Component {
                             .set(questionId, questionValidationErrors)
                             .value();
 
+    if(questionValidationErrors && questionValidationErrors.length) {
+      this.props.onAnswerError && this.props.onAnswerError(questionId, questionValidationErrors);
+    }
+
     this.setState({
       validationErrors : validationErrors
     });
@@ -86,9 +90,12 @@ class QuestionPanel extends React.Component {
         })
       });
 
+      this.props.onError && this.props.onError(validationErrors);
+
       this.setState({
         validationErrors : validationErrors
       });
+
       return;
     }
 
@@ -188,6 +195,18 @@ class QuestionPanel extends React.Component {
   }
 
   render() {
+    var error = null;
+    if(this.props.schema.showErrorSummary) {
+      let isError = false;
+
+       for(let key in this.state.validationErrors) {
+         isError = isError || !_.isEmpty(this.state.validationErrors[key]);
+       }
+       if(isError) {
+        error = this.props.schema.summaryErrorMessage || 'There are errors in your input. Please correct them and submit again.';
+       }
+    }
+
     var questionSets = this.props.questionSets.map(questionSetMeta => {
       var questionSet = _.find(this.props.schema.questionSets, {
         questionSetId : questionSetMeta.questionSetId
@@ -238,6 +257,9 @@ class QuestionPanel extends React.Component {
               </div>
             )
           : undefined}
+        {
+          error && <div className={this.props.schema.classes.errorContainer}>! {error} </div>
+        }
         <div className={this.props.classes.questionSets}>
           {questionSets}
         </div>
@@ -277,7 +299,9 @@ QuestionPanel.defaultProps = {
   onSwitchPanel          : () => {},
   onPanelBack            : () => {},
   panelHistory           : [],
-  disableSubmit          : false
+  disableSubmit          : false,
+  onAnswerError          : undefined,
+  onError                : undefined
 };
 
 module.exports = QuestionPanel;
