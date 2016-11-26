@@ -37,10 +37,10 @@ class MaterialDatePicker extends React.Component {
         fullWidth={this.props.fullWidth}
         hintText={this.props.hintText}
         value={this.state.value}
-        onChange={this.handleChange.bind(this)}
+        onChange={this.handleChange}
         onBlur={this.props.onBlur.bind(null, this.state.value)}
         onKeyDown={this.props.onKeyDown}
-        {...this.props}/>
+        />
       );
     }
   }

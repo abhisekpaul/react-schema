@@ -46,7 +46,7 @@ class MaterialSelectField extends React.Component {
       onChange={this.handleChange.bind(this)}
       onBlur={this.props.onBlur.bind(null, this.state.value)}
       onKeyDown={this.props.onKeyDown}
-      {...this.props}>
+      >
           {options}
       </SelectField>
     )

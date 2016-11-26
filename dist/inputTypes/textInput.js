@@ -18,6 +18,12 @@ var TextInput = function (_React$Component) {
 
     var _this = _possibleConstructorReturn(this, (TextInput.__proto__ || Object.getPrototypeOf(TextInput)).call(this, props));
 
+    _this.handleChange = function (e) {
+      _this.setState({
+        value: e.target.value
+      }, _this.props.onChange.bind(null, e.target.value));
+    };
+
     _this.state = {
       value: _this.props.value
     };
@@ -25,13 +31,6 @@ var TextInput = function (_React$Component) {
   }
 
   _createClass(TextInput, [{
-    key: 'handleChange',
-    value: function handleChange(e) {
-      this.setState({
-        value: e.target.value
-      }, this.props.onChange.bind(null, e.target.value));
-    }
-  }, {
     key: 'render',
     value: function render() {
       return React.createElement('input', { type: 'text',
@@ -42,7 +41,7 @@ var TextInput = function (_React$Component) {
         placeholder: this.props.placeholder,
         value: this.state.value,
         required: this.props.required ? 'required' : undefined,
-        onChange: this.handleChange.bind(this),
+        onChange: this.handleChange,
         onBlur: this.props.onBlur.bind(null, this.state.value),
         onKeyDown: this.props.onKeyDown });
     }

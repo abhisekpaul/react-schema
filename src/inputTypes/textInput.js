@@ -10,7 +10,7 @@ class TextInput extends React.Component {
     };
   }
 
-  handleChange(e) {
+  handleChange = (e) => {
     this.setState({
       value : e.target.value
     }, this.props.onChange.bind(null, e.target.value));
@@ -28,7 +28,7 @@ class TextInput extends React.Component {
              required={this.props.required
                          ? 'required'
                          : undefined}
-             onChange={this.handleChange.bind(this)}
+             onChange={this.handleChange}
              onBlur={this.props.onBlur.bind(null, this.state.value)}
              onKeyDown={this.props.onKeyDown} />
     );

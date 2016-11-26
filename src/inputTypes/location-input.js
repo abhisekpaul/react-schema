@@ -37,6 +37,7 @@ class LocationInput extends React.Component {
     let location = google && new google.maps.LatLng(53.558572, 9.9278215);
     return (
       <Geosuggest
+        placeholder={this.props.placeholder}
         inputClassName={this.props.classes.input}
         initialValue={this.props.initialValue}
         onSuggestSelect={this.handleChange.bind(this)}
@@ -44,7 +45,6 @@ class LocationInput extends React.Component {
         radius={this.props.radius}
         country={this.props.country}
         autoActivateFirstSuggest={this.props.autoActivateFirstSuggest}
-        {...this.props}
         value={this.state.value}
         onBlur={this.props.onBlur.bind(null, this.state.value)}
         onKeyDown={this.props.onKeyDown}/>

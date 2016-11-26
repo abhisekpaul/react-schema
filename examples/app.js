@@ -3,6 +3,7 @@ import TextField from 'material-ui/TextField';
 var ReactDOM      = window.ReactDOM = require('react-dom');
 import {cloneDeep} from 'lodash';
 import { Router, IndexRedirect, Route, hashHistory } from 'react-router';
+
 var SchemaExample = require('./SchemaExample');
 
 var schema      = require('./schema');
@@ -50,6 +51,7 @@ window.onload = function() {
   ReactDOM.render(
     <div>
       <button onClick={onClick}>click me</button>
+
       <SchemaExample schema={loginSchema}
                   onRender={onRender}
                   onUpdate={onUpdate}
