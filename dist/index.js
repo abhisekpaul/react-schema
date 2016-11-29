@@ -28,13 +28,13 @@ var _ = require('lodash').noConflict();
 
 var QuestionPanel = require('./questionPanel');
 
-var Winterfell = function (_React$Component) {
-  _inherits(Winterfell, _React$Component);
+var ReactSchema = function (_React$Component) {
+  _inherits(ReactSchema, _React$Component);
 
-  function Winterfell(props) {
-    _classCallCheck(this, Winterfell);
+  function ReactSchema(props) {
+    _classCallCheck(this, ReactSchema);
 
-    var _this = _possibleConstructorReturn(this, (Winterfell.__proto__ || Object.getPrototypeOf(Winterfell)).call(this, props));
+    var _this = _possibleConstructorReturn(this, (ReactSchema.__proto__ || Object.getPrototypeOf(ReactSchema)).call(this, props));
 
     _this.panelHistory = [];
 
@@ -56,7 +56,7 @@ var Winterfell = function (_React$Component) {
     }) : undefined;
 
     if (!currentPanel) {
-      throw new Error('Winterfell: Could not find initial panel and failed to render.');
+      throw new Error('ReactSchema: Could not find initial panel and failed to render.');
     }
 
     _this.state = {
@@ -68,7 +68,7 @@ var Winterfell = function (_React$Component) {
     return _this;
   }
 
-  _createClass(Winterfell, [{
+  _createClass(ReactSchema, [{
     key: 'componentWillReceiveProps',
     value: function componentWillReceiveProps(nextProps) {
       this.setState({
@@ -94,7 +94,7 @@ var Winterfell = function (_React$Component) {
       });
 
       if (!panel) {
-        throw new Error('Winterfell: Tried to switch to panel "' + panelId + '", which does not exist.');
+        throw new Error('ReactSchema: Tried to switch to panel "' + panelId + '", which does not exist.');
       }
 
       if (!preventHistory) {
@@ -156,7 +156,6 @@ var Winterfell = function (_React$Component) {
         { method: this.props.method,
           encType: this.props.encType,
           action: this.state.action,
-          ref: this.props.ref,
           className: this.state.schema.classes.form },
         React.createElement(
           'div',
@@ -195,13 +194,13 @@ var Winterfell = function (_React$Component) {
     }
   }]);
 
-  return Winterfell;
+  return ReactSchema;
 }(React.Component);
 
 ;
 
 // @todo: Proptypes
-Winterfell.defaultProps = {
+ReactSchema.defaultProps = {
   schema: {
     formPanels: [],
     questionPanels: [],
@@ -225,17 +224,17 @@ Winterfell.defaultProps = {
   onError: undefined
 };
 
-Winterfell.inputTypes = require('./inputTypes');
-Winterfell.errorMessages = require('./lib/errors');
-Winterfell.validation = require('./lib/validation');
+ReactSchema.inputTypes = require('./inputTypes');
+ReactSchema.errorMessages = require('./lib/errors');
+ReactSchema.validation = require('./lib/validation');
 
-Winterfell.addInputType = Winterfell.inputTypes.addInputType;
-Winterfell.addInputTypes = Winterfell.inputTypes.addInputTypes;
+ReactSchema.addInputType = ReactSchema.inputTypes.addInputType;
+ReactSchema.addInputTypes = ReactSchema.inputTypes.addInputTypes;
 
-Winterfell.addErrorMessage = Winterfell.errorMessages.addErrorMessage;
-Winterfell.addErrorMessages = Winterfell.errorMessages.addErrorMessages;
+ReactSchema.addErrorMessage = ReactSchema.errorMessages.addErrorMessage;
+ReactSchema.addErrorMessages = ReactSchema.errorMessages.addErrorMessages;
 
-Winterfell.addValidationMethod = Winterfell.validation.addValidationMethod;
-Winterfell.addValidationMethods = Winterfell.validation.addValidationMethods;
+ReactSchema.addValidationMethod = ReactSchema.validation.addValidationMethod;
+ReactSchema.addValidationMethods = ReactSchema.validation.addValidationMethods;
 
-module.exports = Winterfell;
+module.exports = ReactSchema;

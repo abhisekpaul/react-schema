@@ -1,26 +1,21 @@
-#Winterfell
+#ReactSchema
 
 **Generate complex, validated and extendable JSON-based forms in React**
 
-Winterfell allows you to build up complex, multi-page forms with conditional questions, validation and conditional-page switching via a JSON schema, rendered by React.
-
-Winterfell was initially made for a project in a sector that required a large, complex form with questions that would result in more questions or different pages when you clicked next. With an easy to write schema and a high level of customisation, comes a great power.
-
-[View Demo](http://winterfell.andrewhathaway.net) -
-[Follow me on Twitter](http://twitter.com/andrewhathaway)
+ReactSchema allows you to build up complex, multi-page forms with conditional questions, validation and conditional-page switching via a JSON schema, rendered by React.
 
 ## Usage
 
-First install [Winterfell via npm](https://www.npmjs.com/package/winterfell)
+First install [ReactSchema via npm](https://www.npmjs.com/package/ReactSchema)
 
 ```bash
-$ npm install winterfell --save
+$ npm install react-schema --save
 ```
 
-Winterfell uses a JSON schema to render your form. We will go through that later.
+ReactSchema uses a JSON schema to render your form. We will go through that later.
 
 ```javascript
-var Winterfell = require('winterfell');
+var ReactSchema = require('react-schema');
 var schema     = require('./schema');
 
 //for material ui
@@ -28,7 +23,7 @@ var injectTapEventPlugin = require("react-tap-event-plugin");
 injectTapEventPlugin();
 
 React.render(
-  <Winterfell schema={schema} />,
+  <ReactSchema schema={schema} />,
   document.getElementById('form')
 );
 ```
@@ -67,7 +62,7 @@ The schema is built up of three main parts, `formPanels`, `questionPanels` and `
 
 #### Form Panels
 
-The initial `formPanels` entry is used as a page of questions, or `questionPanels` in Winterfell's case.
+The initial `formPanels` entry is used as a page of questions, or `questionPanels` in ReactSchema's case.
 
 ```json
 {
@@ -227,7 +222,7 @@ To validate a questions answer against another questions answer, you can wrap cu
 
 #### HTML Classes
 
-Winterfell allows you to define classes for the rendered form in multiple different areas. To use them, place them in the root of the form-schema like so:
+ReactSchema allows you to define classes for the rendered form in multiple different areas. To use them, place them in the root of the form-schema like so:
 
 ```
 {
@@ -276,7 +271,7 @@ radioLabel                   | Assigned to the label inside of a radio button op
 radio                        | Assigned to the radio button inside of a `radioOptionsInput`
 ## Default & Custom Input Types
 
-The default set of input types that ships with Winterfell are the following:
+The default set of input types that ships with ReactSchema are the following:
 
 - textInput
 - textareaInput
@@ -292,15 +287,15 @@ The default set of input types that ships with Winterfell are the following:
 You can also define custom input types like so:
 
 ```javascript
-var Winterfell         = require('winterfell');
+var ReactSchema         = require('ReactSchema');
 var MyAwesomeInputType = require('./awesomeInputType');
 
-Winterfell
+ReactSchema
   .addInputType('myAwesomeInputType', MyAwesomeInputType);
 
 // OR
 
-Winterfell
+ReactSchema
   .addInputTypes({
     myAwesomeInputType : MyAwesomeInputType
   });
@@ -312,12 +307,12 @@ Winterfell
 Error messages can be set strings, or methods that are called to generate an error message. They can be set like so:
 
 ```javascript
-var Winterfell = require('winterfell');
+var ReactSchema = require('ReactSchema');
 
-Winterfell
+ReactSchema
   .addErrorMessage('isLength', 'Please enter some text!');
 
-Winterfell
+ReactSchema
   .addErrorMessages({
   	isLength : (validationItem) => {
   	  /*
@@ -337,9 +332,9 @@ Winterfell
 Validation methods can be defined and will be chosen over methods defined in the Validator package.
 
 ```javascript
-var Winterfell = require('winterfell');
+var ReactSchema = require('ReactSchema');
 
-Winterfell
+ReactSchema
   .addValidationMethod('isLength', value => {
   	/*
   	 * arguments == validation parameters
@@ -348,7 +343,7 @@ Winterfell
     return true; // Valid
   });
 
-Winterfell
+ReactSchema
   .addValidationMethods({
   	isLength : value => {
   	  /*
@@ -362,7 +357,7 @@ Winterfell
 
 ## Props & Config
 
-The following table shows the props Winterfell accepts, their types and descriptions. The only prop that is required is `schema`.
+The following table shows the props ReactSchema accepts, their types and descriptions. The only prop that is required is `schema`.
 
 Prop Name              | Type     | Description
 ---                    | ---      | ---
@@ -379,11 +374,11 @@ renderRequiredAsterisk | function | Custom require asterisk rendering method. Re
 
 ## Events
 
-The following events can be registered as props of Winterfell.
+The following events can be registered as props of ReactSchema.
 
 Event Prop | Description | Arguments
 --- | --- | ---
-onRender      | Fired when Winterfell has initially rendered   | N/A
+onRender      | Fired when ReactSchema has initially rendered   | N/A
 onUpdate      | Fired when a questions answer has been changed | `questionAnswers`
 onSwitchPanel | Fired when a panel is switched or changed      | `panel`
 onSubmit      | Fired when the form is submitted successfully  | `questionAnswers`, `action`
@@ -400,7 +395,7 @@ Pull requests are completely welcome. If you'd like to get in touch, [Tweet me](
 
 MIT License (MIT)
 
-Copyright (c) 2015 Andrew Hathaway, [https://github.com/andrewhathaway/Winterfell](https://github.com/andrewhathaway/Winterfell)
+Copyright (c) 2015 Andrew Hathaway, [https://github.com/andrewhathaway/ReactSchema](https://github.com/andrewhathaway/ReactSchema)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

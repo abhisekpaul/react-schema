@@ -32,11 +32,11 @@ var inputTypes = {
  */
 inputTypes.addInputType = function (name, instance) {
   if (typeof name !== 'string') {
-    throw new Error('Winterfell: First parameter of addInputType ' + 'must be of type string');
+    throw new Error('ReactSchema: First parameter of addInputType ' + 'must be of type string');
   }
 
   if (!React.Component instanceof instance.constructor) {
-    throw new Error('Winterfell: Cannot not assign "' + name + '" as an inputType. ' + 'Second paramter expects a React component');
+    throw new Error('ReactSchema: Cannot not assign "' + name + '" as an inputType. ' + 'Second paramter expects a React component');
   }
 
   inputTypes[name] = instance;
@@ -49,7 +49,7 @@ inputTypes.addInputType = function (name, instance) {
  */
 inputTypes.addInputTypes = function (types) {
   if ((typeof types === 'undefined' ? 'undefined' : _typeof(types)) !== 'object') {
-    throw new Error('Winterfell: First parameter of addInputTypes ' + 'must be of type object');
+    throw new Error('ReactSchema: First parameter of addInputTypes ' + 'must be of type object');
   }
 
   for (var type in types) {

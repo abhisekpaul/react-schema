@@ -19,8 +19,8 @@ module.exports = {
   },
   output    : {
     libraryTarget : 'var',
-    library       : 'Winterfell',
-    filename      : 'winterfell.min.js',
+    library       : 'ReactSchema',
+    filename      : 'react-schema.min.js',
     path          : __dirname + '/dist'
   },
   plugins  : [

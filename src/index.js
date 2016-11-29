@@ -6,7 +6,7 @@ var _  = require('lodash').noConflict();
 
 var QuestionPanel = require('./questionPanel');
 
-class Winterfell extends React.Component {
+class ReactSchema extends React.Component {
 
   constructor(props) {
     super(props);
@@ -37,7 +37,7 @@ class Winterfell extends React.Component {
                          : undefined;
 
     if (!currentPanel) {
-      throw new Error('Winterfell: Could not find initial panel and failed to render.');
+      throw new Error('ReactSchema: Could not find initial panel and failed to render.');
     }
 
     this.state = {
@@ -72,7 +72,7 @@ class Winterfell extends React.Component {
     });
 
     if (!panel) {
-      throw new Error('Winterfell: Tried to switch to panel "'
+      throw new Error('ReactSchema: Tried to switch to panel "'
                       + panelId + '", which does not exist.');
     }
 
@@ -128,7 +128,6 @@ class Winterfell extends React.Component {
       <form method={this.props.method}
             encType={this.props.encType}
             action={this.state.action}
-            ref={this.props.ref}
             className={this.state.schema.classes.form}>
         <div className={this.state.schema.classes.questionPanels}>
           <QuestionPanel schema={this.state.schema}
@@ -167,7 +166,7 @@ class Winterfell extends React.Component {
 };
 
 // @todo: Proptypes
-Winterfell.defaultProps = {
+ReactSchema.defaultProps = {
   schema                 : {
     formPanels     : [],
     questionPanels : [],
@@ -191,17 +190,17 @@ Winterfell.defaultProps = {
   onError                : undefined
 };
 
-Winterfell.inputTypes    = require('./inputTypes');
-Winterfell.errorMessages = require('./lib/errors');
-Winterfell.validation    = require('./lib/validation');
+ReactSchema.inputTypes    = require('./inputTypes');
+ReactSchema.errorMessages = require('./lib/errors');
+ReactSchema.validation    = require('./lib/validation');
 
-Winterfell.addInputType  = Winterfell.inputTypes.addInputType;
-Winterfell.addInputTypes = Winterfell.inputTypes.addInputTypes;
+ReactSchema.addInputType  = ReactSchema.inputTypes.addInputType;
+ReactSchema.addInputTypes = ReactSchema.inputTypes.addInputTypes;
 
-Winterfell.addErrorMessage  = Winterfell.errorMessages.addErrorMessage;
-Winterfell.addErrorMessages = Winterfell.errorMessages.addErrorMessages;
+ReactSchema.addErrorMessage  = ReactSchema.errorMessages.addErrorMessage;
+ReactSchema.addErrorMessages = ReactSchema.errorMessages.addErrorMessages;
 
-Winterfell.addValidationMethod  = Winterfell.validation.addValidationMethod;
-Winterfell.addValidationMethods = Winterfell.validation.addValidationMethods;
+ReactSchema.addValidationMethod  = ReactSchema.validation.addValidationMethod;
+ReactSchema.addValidationMethods = ReactSchema.validation.addValidationMethods;
 
-module.exports = Winterfell;
+module.exports = ReactSchema;
