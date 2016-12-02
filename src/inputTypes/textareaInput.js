@@ -16,6 +16,14 @@ class TextareaInput extends React.Component {
     }, this.props.onChange.bind(null, e.target.value));
   }
 
+  componentWillReceiveProps(props) {
+    if(this.props.value !== props.value) {
+      this.setState({
+        value: props.value,
+      }, this.props.onChange.bind(null, props.value));
+    }
+  }
+
   render() {
     return (
       <textarea type="text"

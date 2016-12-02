@@ -46,13 +46,26 @@ module.exports = {
       }]
     },
     {
+      "questionId" : "email3",
+      "question" : "Email Address3",
+      "input" : {
+        "type" : "materialTextField",
+        "placeholder" : "Email Address",
+        "required" : true,
+        "default" : "abhisekpaul@gmail.com"
+      },
+      "validations" : [{
+        "type" : "isEmail"
+      }]
+    },
+    {
       "questionId" : "email2",
       "question" : "Email Address2",
       "input" : {
-        "type" : "textInput",
+        "type" : "materialTextField",
         "placeholder" : "Email Address",
         "required" : true,
-        "default" : "abhisekpaul@gmail.com123"
+        "default" : "abhisekpaul@gmail.com"
       },
       "validations" : [{
         "type" : "isEmail"

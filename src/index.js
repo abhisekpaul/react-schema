@@ -121,6 +121,7 @@ class ReactSchema extends React.Component {
   }
 
   render() {
+
     var currentPanel = _.find(this.state.schema.questionPanels,
                           panel => panel.panelId == this.state.currentPanel.panelId);
 

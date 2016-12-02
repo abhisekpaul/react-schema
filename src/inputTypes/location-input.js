@@ -24,6 +24,14 @@ class LocationInput extends React.Component {
     };
   }
 
+  componentWillReceiveProps(props) {
+    if(this.props.value !== props.value) {
+      this.setState({
+        value: props.value,
+      }, this.props.onChange.bind(null, props.value));
+    }
+  }
+
   handleChange = (value) => {
     this.setState({
       value: value,
@@ -34,12 +42,13 @@ class LocationInput extends React.Component {
     let google = window.google;
     if(!google) return null;
 
+    let label = (this.state.value && this.state.value.label) || this.props.initialValue;
     let location = google && new google.maps.LatLng(53.558572, 9.9278215);
     return (
       <Geosuggest
         placeholder={this.props.placeholder}
         inputClassName={this.props.classes.input}
-        initialValue={this.props.initialValue}
+        initialValue={label}
         onSuggestSelect={this.handleChange.bind(this)}
         location={location}
         radius={this.props.radius}

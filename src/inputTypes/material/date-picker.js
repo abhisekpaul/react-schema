@@ -1,5 +1,20 @@
 import React from 'react';
 import DatePicker from 'material-ui/DatePicker';
+import areIntlLocalesSupported from 'intl-locales-supported';
+
+let DateTimeFormat;
+
+/**
+ * Use the native Intl.DateTimeFormat if available, or a polyfill if not.
+ */
+if (areIntlLocalesSupported(['fr', 'fa-IR'])) {
+  DateTimeFormat = global.Intl.DateTimeFormat;
+} else {
+  const IntlPolyfill = require('intl');
+  DateTimeFormat = IntlPolyfill.DateTimeFormat;
+  require('intl/locale-data/jsonp/fr');
+  require('intl/locale-data/jsonp/fa-IR');
+}
 
 class MaterialDatePicker extends React.Component {
 
@@ -23,6 +38,14 @@ class MaterialDatePicker extends React.Component {
       value : this.props.value
     };
   }
+  
+  componentWillReceiveProps(props) {
+    if(this.props.value !== props.value) {
+      this.setState({
+        value: props.value,
+      }, this.props.onChange.bind(null, props.value));
+    }
+  }
 
   handleChange = (event, date) => {
     this.setState({
@@ -40,7 +63,11 @@ class MaterialDatePicker extends React.Component {
         onChange={this.handleChange}
         onBlur={this.props.onBlur.bind(null, this.state.value)}
         onKeyDown={this.props.onKeyDown}
-        />
+        formatDate={new DateTimeFormat('en-US', {
+          day: 'numeric',
+          month: 'long',
+          year: 'numeric'
+        }).format}/>
       );
     }
   }

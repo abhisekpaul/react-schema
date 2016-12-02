@@ -39,16 +39,26 @@ var LocationInput = function (_React$Component) {
   }
 
   _createClass(LocationInput, [{
+    key: 'componentWillReceiveProps',
+    value: function componentWillReceiveProps(props) {
+      if (this.props.value !== props.value) {
+        this.setState({
+          value: props.value
+        }, this.props.onChange.bind(null, props.value));
+      }
+    }
+  }, {
     key: 'render',
     value: function render() {
       var google = window.google;
       if (!google) return null;
 
+      var label = this.state.value && this.state.value.label || this.props.initialValue;
       var location = google && new google.maps.LatLng(53.558572, 9.9278215);
       return _react2.default.createElement(_reactGeosuggest2.default, {
         placeholder: this.props.placeholder,
         inputClassName: this.props.classes.input,
-        initialValue: this.props.initialValue,
+        initialValue: label,
         onSuggestSelect: this.handleChange.bind(this),
         location: location,
         radius: this.props.radius,

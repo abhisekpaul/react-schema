@@ -31,6 +31,15 @@ var TextInput = function (_React$Component) {
   }
 
   _createClass(TextInput, [{
+    key: 'componentWillReceiveProps',
+    value: function componentWillReceiveProps(props) {
+      if (this.props.value !== props.value) {
+        this.setState({
+          value: props.value
+        }, this.props.onChange.bind(null, props.value));
+      }
+    }
+  }, {
     key: 'render',
     value: function render() {
       return React.createElement('input', { type: 'text',

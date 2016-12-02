@@ -47,6 +47,15 @@ var CheckboxInput = function (_React$Component) {
       }
     }
   }, {
+    key: 'componentWillReceiveProps',
+    value: function componentWillReceiveProps(props) {
+      if (this.props.value !== props.value) {
+        this.setState({
+          value: props.value
+        }, this.props.onChange.bind(null, props.value));
+      }
+    }
+  }, {
     key: 'render',
     value: function render() {
       return React.createElement(

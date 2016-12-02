@@ -38,6 +38,15 @@ var DropzoneFileUpload = function (_React$Component) {
       new _dropzone2.default("div#dropzone", { url: "/file/post" });
     }
   }, {
+    key: 'componentWillReceiveProps',
+    value: function componentWillReceiveProps(props) {
+      if (this.props.value !== props.value) {
+        this.setState({
+          value: props.value
+        }, this.props.onChange.bind(null, props.value));
+      }
+    }
+  }, {
     key: 'render',
     value: function render() {
       return _react2.default.createElement('div', { id: 'dropzone' });

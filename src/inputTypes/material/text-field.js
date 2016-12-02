@@ -24,6 +24,14 @@ class MaterialTextField extends React.Component {
     };
   }
 
+  componentWillReceiveProps(props) {
+    if(this.props.value !== props.value) {
+      this.setState({
+        value: props.value,
+      }, this.props.onChange.bind(null, props.value));
+    }
+  }
+
   handleChange = (event) => {
     this.setState({
       value: event.target.value,

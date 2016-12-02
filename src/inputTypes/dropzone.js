@@ -25,6 +25,14 @@ class DropzoneFileUpload extends React.Component {
   componentDidMount() {
     new Dropzone("div#dropzone", { url: "/file/post"});
   }
+  
+  componentWillReceiveProps(props) {
+    if(this.props.value !== props.value) {
+      this.setState({
+        value: props.value,
+      }, this.props.onChange.bind(null, props.value));
+    }
+  }
 
   render() {
     return (

@@ -43,6 +43,15 @@ var MaterialSelectField = function (_React$Component) {
   }
 
   _createClass(MaterialSelectField, [{
+    key: 'componentWillReceiveProps',
+    value: function componentWillReceiveProps(props) {
+      if (this.props.value !== props.value) {
+        this.setState({
+          value: props.value
+        }, this.props.onChange.bind(null, props.value));
+      }
+    }
+  }, {
     key: 'render',
     value: function render() {
       var options = this.props.options.map(function (opt, index) {
