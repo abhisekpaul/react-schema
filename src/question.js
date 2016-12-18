@@ -190,4 +190,4 @@ Question.defaultProps = {
   renderRequiredAsterisk : undefined
 };
 
-module.exports = Question;
+export default Question;

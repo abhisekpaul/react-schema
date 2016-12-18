@@ -334,3 +334,8 @@ pre.line-numbers > code {
   overflow: hidden;
   border-width: 0;
 }
+
+.array-bg {
+  height: 20px;
+  background: #fefefe;
+}

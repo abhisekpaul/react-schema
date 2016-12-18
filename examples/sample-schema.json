@@ -1,0 +1,429 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "product_id": {
+        "type": "string"
+      },
+      "product_desc": {
+        "type": "string"
+      },
+      "t_c_url": {
+        "type": "string"
+      },
+      "available_from": {
+        "type": "string"
+      },
+      "has_account_manager": {
+        "type": "string"
+      },
+      "product_url": {
+        "type": "string"
+      },
+      "currency": {
+        "type": "string"
+      },
+      "cheque_book_available": {
+        "type": "string"
+      },
+      "product_name": {
+        "type": "string"
+      },
+      "product_type": {
+        "type": "string"
+      },
+      "atm_limit": {
+        "type": "string"
+      },
+      "expr1014": {
+        "type": "string"
+      },
+      "product_segment": {
+        "type": "string"
+      },
+      "batch_payments": {
+        "type": "string"
+      },
+      "batch_payment_max": {
+        "type": "string"
+      },
+      "seven_day_switch": {
+        "type": "string"
+      },
+      "chequebook_available": {
+        "type": "string"
+      },
+      "age_restricted": {
+        "type": "string"
+      },
+      "minimum_age": {
+        "type": "string"
+      },
+      "other_financial_holding_required": {
+        "type": "string"
+      },
+      "income_related": {
+        "type": "string"
+      },
+      "annual_company_turnover_min": {
+        "type": "string"
+      },
+      "annual_company_turnover_max": {
+        "type": "string"
+      },
+      "annual_company_turnover_currency": {
+        "type": "string"
+      },
+      "residency_restricted": {
+        "type": "string"
+      },
+      "previous_bancruptcy": {
+        "type": "string"
+      },
+      "brand_name": {
+        "type": "string"
+      },
+      "fees_Charges": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "fees_type": {
+              "type": "string"
+            },
+            "fees_frequency": {
+              "type": "string"
+            },
+            "product_desc": {
+              "type": "string"
+            },
+            "charge_tier_lower": {
+              "type": "string"
+            },
+            "charge_tier_upper": {
+              "type": "string"
+            },
+            "charge_amount": {
+              "type": "string"
+            },
+            "charge_amount_percent": {
+              "type": "string"
+            },
+            "charge_amount_min": {
+              "type": "string"
+            },
+            "charge_amount_max": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "fees_type",
+            "fees_frequency",
+            "product_desc",
+            "charge_tier_lower",
+            "charge_tier_upper",
+            "charge_amount",
+            "charge_amount_percent",
+            "charge_amount_min",
+            "charge_amount_max"
+          ]
+        }
+      },
+      "access": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "access_channel_code": {
+              "type": "string"
+            },
+            "access_channel_name": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "access_channel_code",
+            "access_channel_name"
+          ]
+        }
+      },
+      "eligibility": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "eligibility_id": {
+              "type": "string"
+            },
+            "eligibility_name": {
+              "type": "string"
+            },
+            "eligibility_type": {
+              "type": "string"
+            },
+            "eligibility_value": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "eligibility_id",
+            "eligibility_name",
+            "eligibility_type",
+            "eligibility_value"
+          ]
+        }
+      },
+      "features": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "feature_code": {
+              "type": "string"
+            },
+            "feature_type": {
+              "type": "string"
+            },
+            "feature_sub_type": {
+              "type": "string"
+            },
+            "feature_name": {
+              "type": "string"
+            },
+            "feature_description": {
+              "type": "string"
+            },
+            "default_to_accounts": {
+              "type": "string"
+            },
+            "promotion_start_date": {
+              "type": "string"
+            },
+            "promotion_end_date": {
+              "type": "string"
+            },
+            "benefit_type": {
+              "type": "string"
+            },
+            "criteria_type": {
+              "type": "string"
+            },
+            "criteria_amount": {
+              "type": "string"
+            },
+            "criteria_counter": {
+              "type": "string"
+            },
+            "benefit_description": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "feature_code",
+            "feature_type",
+            "feature_sub_type",
+            "feature_name",
+            "feature_description",
+            "default_to_accounts",
+            "promotion_start_date",
+            "promotion_end_date",
+            "benefit_type",
+            "criteria_type",
+            "criteria_amount",
+            "criteria_counter",
+            "benefit_description"
+          ]
+        }
+      },
+      "overdrafts": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "overdraft_type": {
+              "type": "string"
+            },
+            "daily_cap": {
+              "type": "string"
+            },
+            "monthly_cap": {
+              "type": "string"
+            },
+            "tier_value_min": {
+              "type": "string"
+            },
+            "tier_value_max": {
+              "type": "string"
+            },
+            "interest_rate": {
+              "type": "string"
+            },
+            "daily_charge": {
+              "type": "string"
+            },
+            "monthly_charge": {
+              "type": "string"
+            },
+            "item_charge": {
+              "type": "string"
+            },
+            "overdraft_notes": {
+              "type": "string"
+            },
+            "overdraft_buffer": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "overdraft_type",
+            "daily_cap",
+            "monthly_cap",
+            "tier_value_min",
+            "tier_value_max",
+            "interest_rate",
+            "daily_charge",
+            "monthly_charge",
+            "item_charge",
+            "overdraft_notes",
+            "overdraft_buffer"
+          ]
+        }
+      },
+      "rates": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "rate_id": {
+              "type": "string"
+            },
+            "rate_type": {
+              "type": "string"
+            },
+            "rate_sub_type": {
+              "type": "string"
+            },
+            "risk_level": {
+              "type": "string"
+            },
+            "tier_id": {
+              "type": "string"
+            },
+            "tier_lower": {
+              "type": "string"
+            },
+            "tier_upper": {
+              "type": "string"
+            },
+            "applied_to": {
+              "type": "string"
+            },
+            "rate": {
+              "type": "string"
+            },
+            "calculation_method": {
+              "type": "string"
+            },
+            "term_in_months": {
+              "type": "string"
+            },
+            "start_date": {
+              "type": "string"
+            },
+            "period": {
+              "type": "string"
+            },
+            "end_date": {
+              "type": "string"
+            },
+            "frequency": {
+              "type": "string"
+            },
+            "payment_method": {
+              "type": "string"
+            },
+            "fixed_interest_length": {
+              "type": "string"
+            },
+            "fixed_interest_unit": {
+              "type": "string"
+            },
+            "rate_comparision_type": {
+              "type": "string"
+            },
+            "notes": {
+              "type": "string"
+            },
+            "representative_rate": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "rate_id",
+            "rate_type",
+            "rate_sub_type",
+            "risk_level",
+            "tier_id",
+            "tier_lower",
+            "tier_upper",
+            "applied_to",
+            "rate",
+            "calculation_method",
+            "term_in_months",
+            "start_date",
+            "period",
+            "end_date",
+            "frequency",
+            "payment_method",
+            "fixed_interest_length",
+            "fixed_interest_unit",
+            "rate_comparision_type",
+            "notes",
+            "representative_rate"
+          ]
+        }
+      }
+    },
+    "required": [
+      "product_id",
+      "product_desc",
+      "t_c_url",
+      "available_from",
+      "has_account_manager",
+      "product_url",
+      "currency",
+      "cheque_book_available",
+      "product_name",
+      "product_type",
+      "atm_limit",
+      "expr1014",
+      "product_segment",
+      "batch_payments",
+      "batch_payment_max",
+      "seven_day_switch",
+      "chequebook_available",
+      "age_restricted",
+      "minimum_age",
+      "other_financial_holding_required",
+      "income_related",
+      "annual_company_turnover_min",
+      "annual_company_turnover_max",
+      "annual_company_turnover_currency",
+      "residency_restricted",
+      "previous_bancruptcy",
+      "brand_name",
+      "fees_Charges",
+      "access",
+      "eligibility",
+      "features",
+      "overdrafts",
+      "rates"
+    ]
+  }
+}

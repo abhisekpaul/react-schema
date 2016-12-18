@@ -21,7 +21,8 @@ var inputTypes = {
   MultiSelect: require('./multi-select'),
   LocationInput: require('./location-input'),
   WeeklyCalendar: require('./weekly-calendar'),
-  FileUpload: require('./file-upload')
+  FileUpload: require('./file-upload'),
+  ArrayInput: require('./array-input')
 };
 
 /**

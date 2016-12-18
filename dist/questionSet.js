@@ -27,6 +27,7 @@ var QuestionSet = function (_React$Component) {
     value: function render() {
       var _this2 = this;
 
+      console.log("123213123213", Question);
       var questions = this.props.questions.map(function (question) {
         return React.createElement(Question, { key: question.questionId,
           questionSetId: _this2.props.id,
