@@ -1,0 +1,39 @@
+stages:
+  - test
+  - publish
+  - deploy
+
+cache:
+  key: "$CI_BUILD_REF_NAME"
+  untracked: true
+  paths:
+    - node_modules/
+
+test:
+  stage: test
+  script:
+    - . ~/.nvm/nvm.sh
+    - nvm use 4.5.0
+    - npm install
+    - npm test
+  only:
+    - master
+  tags:
+   - mh-build-1
+
+
+publish:
+  stage: publish
+  script:
+    - . ~/.nvm/nvm.sh
+    - nvm use 4.5.0
+    - npm install
+    - echo Tagging version as $CI_BUILD_REF_NAME
+    - sed -Ei 's/0000\.0000\.0000/'$CI_BUILD_REF_NAME'/g' package.json
+    - npm run build
+    - npm shrinkwrap
+    - npm publish
+  only:
+    - tags
+  tags:
+   - mh-build-1
