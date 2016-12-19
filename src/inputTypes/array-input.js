@@ -76,7 +76,7 @@ class ArrayInput extends React.Component {
                       renderRequiredAsterisk={this.props.renderRequiredAsterisk}
                       questionAnswers={this.props.questionAnswers}
                       validationErrors={this.props.validationErrors}
-                      onAnswerChange={this.props.onAnswerChange}
+                      onAnswerChange={this.handleAnswerChange.bind(this,index)}
                       onQuestionBlur={this.props.onQuestionBlur}
                       onKeyDown={this.props.onKeyDown} />
         )
@@ -145,7 +145,14 @@ class ArrayInput extends React.Component {
         value:value
       }, this.props.onChange.bind(null, value));
     }
+  }
 
+  handleAnswerChange = (index, questionId, questionAnswer, validations, validateOn) => {
+    let value = this.state.value.slice(0);
+    value[index][questionId] = questionAnswer;
+    this.setState({
+      value:value
+    }, this.props.onChange.bind(null, value));
   }
 }
 
