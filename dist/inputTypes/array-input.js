@@ -22,7 +22,17 @@ var _delete = require('material-ui/svg-icons/action/delete');
 
 var _delete2 = _interopRequireDefault(_delete);
 
+var _List = require('material-ui/List');
+
+var _Divider = require('material-ui/Divider');
+
+var _Divider2 = _interopRequireDefault(_Divider);
+
 var _lodash = require('lodash');
+
+var _question = require('../question');
+
+var _question2 = _interopRequireDefault(_question);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -32,8 +42,6 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var Question = require('../question');
-
 var ArrayInput = function (_React$Component) {
   _inherits(ArrayInput, _React$Component);
 
@@ -42,73 +50,91 @@ var ArrayInput = function (_React$Component) {
 
     var _this = _possibleConstructorReturn(this, (ArrayInput.__proto__ || Object.getPrototypeOf(ArrayInput)).call(this, props));
 
+    _this.renderQuestions = function (value) {
+      var questions = value.map(function (item, index) {
+
+        var questionRenderers = _this.renderQuestion(item, index);
+        return _react2.default.createElement(
+          _List.List,
+          null,
+          _react2.default.createElement(
+            _List.ListItem,
+            { disabled: true,
+              rightAvatar: _react2.default.createElement(
+                _IconButton2.default,
+                { tooltip: 'Remove Item', onTouchTap: _this.removeItem.bind(_this, index) },
+                _react2.default.createElement(_delete2.default, null)
+              )
+            },
+            questionRenderers.map(function (questionrenderer) {
+              return questionrenderer;
+            })
+          )
+        );
+        // value={this.props.questionAnswers[question.questionId]}
+      });
+
+      return questions;
+    };
+
     _this.handleChange = function (event) {
       _this.setState({
         value: event.target.value
       }, _this.props.onChange.bind(null, event.target.value));
     };
 
-    _this.renderQuestions = function (value) {
-      // let questions = value.map(item => {
-      //   let question = this.getQuestion('email');
-      //   // value={this.props.questionAnswers[question.questionId]}
-      //   return (
-      //     <Question key={question.questionId}
-      //               questionSetId={this.props.id}
-      //               questionId={question.questionId}
-      //               question={question.question}
-      //               validateOn={question.validateOn}
-      //               validations={question.validations}
-      //               text={question.text}
-      //               postText={question.postText}
-      //               input={question.input}
-      //               classes={this.props.classes}
-      //               renderError={this.props.renderError}
-      //               renderRequiredAsterisk={this.props.renderRequiredAsterisk}
-      //               questionAnswers={this.props.questionAnswers}
-      //               validationErrors={this.props.validationErrors}
-      //               onAnswerChange={this.props.onAnswerChange}
-      //               onQuestionBlur={this.props.onQuestionBlur}
-      //               onKeyDown={this.props.onKeyDown} />
-      //   );
-      // });
-      var questions = value.map(function (item) {
-        var questionItem = _this.getQuestion('email');
-        return _react2.default.createElement(Question, { key: questionItem.questionId,
-          questionSetId: _this.props.id,
-          questionId: questionItem.questionId,
-          question: questionItem.question,
-          validateOn: questionItem.validateOn,
-          validations: questionItem.validations,
-          text: questionItem.text,
-          postText: questionItem.postText,
-          input: questionItem.input,
-          classes: _this.props.classes,
-          renderError: _this.props.renderError,
-          renderRequiredAsterisk: _this.props.renderRequiredAsterisk,
-          questionAnswers: _this.props.questionAnswers,
-          validationErrors: _this.props.validationErrors,
-          onAnswerChange: _this.props.onAnswerChange,
-          onQuestionBlur: _this.props.onQuestionBlur,
-          onKeyDown: _this.props.onKeyDown });
-      });
-
-      console.log(Question);
-      console.log(questions);
-
-      return questions;
-    };
-
     _this.addItem = function () {
       var value = _this.state.value.slice(0);
+      var questions = _this.props.elements.questions;
+      var newItem = {};
+      var _iteratorNormalCompletion = true;
+      var _didIteratorError = false;
+      var _iteratorError = undefined;
 
-      value.push({ email: "abhisek@ob.c" });
+      try {
+        for (var _iterator = questions[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+          var item = _step.value;
+
+          newItem[item.questionId] = "";
+        }
+      } catch (err) {
+        _didIteratorError = true;
+        _iteratorError = err;
+      } finally {
+        try {
+          if (!_iteratorNormalCompletion && _iterator.return) {
+            _iterator.return();
+          }
+        } finally {
+          if (_didIteratorError) {
+            throw _iteratorError;
+          }
+        }
+      }
+
+      value.push(newItem);
       _this.setState({
         value: value
-      });
+      }, _this.props.onChange.bind(null, value));
     };
 
-    _this.removeItem = function (item) {};
+    _this.removeItem = function (itemIndex) {
+      var value = _this.state.value.slice(0);
+      if (itemIndex >= 0) {
+        value.splice(itemIndex, 1);
+        _this.setState({
+          value: value
+        }, _this.props.onChange.bind(null, value));
+      }
+    };
+
+    _this.handleAnswerChange = function (index, questionId, questionAnswer, validations, validateOn) {
+      var value = _this.state.value.slice(0);
+      value[index][questionId] = questionAnswer;
+      _this.setState({
+        value: value
+      }, _this.props.onChange.bind(null, value));
+    };
 
     _this.state = {
       value: _this.props.value
@@ -142,6 +168,34 @@ var ArrayInput = function (_React$Component) {
         ),
         this.renderQuestions(value)
       );
+    }
+  }, {
+    key: 'renderQuestion',
+    value: function renderQuestion(item, index) {
+      var result = [];
+      for (var key in item) {
+        var question = this.getQuestion(key);
+        var questionItem = _react2.default.createElement(_question2.default, { key: question.questionId + '_' + index,
+          questionSetId: this.props.id,
+          questionId: question.questionId,
+          question: question.question,
+          validateOn: question.validateOn,
+          validations: question.validations,
+          text: question.text,
+          value: item[key],
+          postText: question.postText,
+          input: question.input,
+          classes: this.props.classes,
+          renderError: this.props.renderError,
+          renderRequiredAsterisk: this.props.renderRequiredAsterisk,
+          questionAnswers: this.props.questionAnswers,
+          validationErrors: this.props.validationErrors,
+          onAnswerChange: this.handleAnswerChange.bind(this, index),
+          onQuestionBlur: this.props.onQuestionBlur,
+          onKeyDown: this.props.onKeyDown });
+        result.push(questionItem);
+      }
+      return result;
     }
   }, {
     key: 'getQuestion',
