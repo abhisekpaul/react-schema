@@ -34,6 +34,13 @@ module.exports = {
     "questionSetId" : "register-set",
     "questions" : [
       {
+        "questionId" : "images",
+        "question" : "Images",
+        "input" : {
+          "type" : "DropZone"
+        }
+      },
+      {
         "questionId" : "eligibility",
         "question" : "Eligibility",
         "input" : {

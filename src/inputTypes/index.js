@@ -18,7 +18,8 @@ var inputTypes = {
   LocationInput        : require('./location-input'),
   WeeklyCalendar       : require('./weekly-calendar'),
   FileUpload           : require('./file-upload'),
-  ArrayInput           : require('./array-input')
+  ArrayInput           : require('./array-input'),
+  DropZone           : require('./dropzone')
 };
 
 /**

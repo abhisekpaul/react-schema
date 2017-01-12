@@ -3,6 +3,7 @@ import TextField from 'material-ui/TextField';
 var ReactDOM      = window.ReactDOM = require('react-dom');
 import {cloneDeep} from 'lodash';
 import { Router, IndexRedirect, Route, hashHistory } from 'react-router';
+var Dropzone = require("dropzone");
 
 var SchemaExample = require('./SchemaExample');
 
@@ -19,17 +20,19 @@ var onRender = () => {
 };
 
 var onClick = () => {
-    loginSchema2 = cloneDeep(loginSchema);
-    ReactDOM.render(
-    <div>
-          <SchemaExample schema={loginSchema2}
-                      questionAnswers={questionAnswers}
-                      onRender={onRender}
-                      onUpdate={onUpdate}
-                      renderRequiredAsterisk={() => <span>{'*'}</span>} />
-    </div>,
-    document.getElementById('login-form2')
-  );
+    var myDropzone = new Dropzone(this.refs["profile-form"], { url: "/file/post"});
+
+    // loginSchema2 = cloneDeep(loginSchema);
+    // ReactDOM.render(
+    // <div>
+    //       <SchemaExample schema={loginSchema2}
+    //                   questionAnswers={questionAnswers}
+    //                   onRender={onRender}
+    //                   onUpdate={onUpdate}
+    //                   renderRequiredAsterisk={() => <span>{'*'}</span>} />
+    // </div>,
+    // document.getElementById('login-form2')
+  // );
 };
 
 var onUpdate = (questionAnswers) => {
@@ -51,6 +54,8 @@ window.onload = function() {
   ReactDOM.render(
     <div>
       <button onClick={onClick}>click me</button>
+
+        <div ref="profile-form" id="myI"></div>
 
       <SchemaExample schema={loginSchema}
                   onRender={onRender}
