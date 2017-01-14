@@ -43,7 +43,7 @@ class FileUpload extends React.Component {
               <div>
               {
                 this.state.value.map(file => {
-                  return <img src={file.preview} />
+                  return <img src={file.preview} width="100px" height="100%"/>
                 })
               }
               </div>
