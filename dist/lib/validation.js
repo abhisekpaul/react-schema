@@ -149,8 +149,8 @@ var getQuestionPanelInvalidQuestions = function getQuestionPanelInvalidQuestions
    */
   var errors = {};
   questionsToCheck.forEach(function (_ref) {
-    var questionId = _ref.questionId;
-    var validations = _ref.validations;
+    var questionId = _ref.questionId,
+        validations = _ref.validations;
     return [].forEach.bind(validations, function (validation) {
       var valid = validateAnswer(questionAnswers[questionId], validation, questionAnswers);
       if (valid) {

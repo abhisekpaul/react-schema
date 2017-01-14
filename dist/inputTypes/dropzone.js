@@ -35,7 +35,7 @@ var DropzoneFileUpload = function (_React$Component) {
   _createClass(DropzoneFileUpload, [{
     key: 'componentDidMount',
     value: function componentDidMount() {
-      new _dropzone2.default("div#dropzone", { url: "/file/post" });
+      // new Dropzone("div#dropzone", { url: "/file/post"});
     }
   }, {
     key: 'componentWillReceiveProps',
@@ -49,7 +49,7 @@ var DropzoneFileUpload = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
-      return _react2.default.createElement('div', { id: 'dropzone' });
+      return _react2.default.createElement('div', null);
     }
   }]);
 
