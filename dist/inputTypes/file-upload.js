@@ -6,9 +6,9 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDropzone = require('react-dropzone');
+var _reactDropzoneComponent = require('react-dropzone-component');
 
-var _reactDropzone2 = _interopRequireDefault(_reactDropzone);
+var _reactDropzoneComponent2 = _interopRequireDefault(_reactDropzoneComponent);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -26,10 +26,26 @@ var FileUpload = function (_React$Component) {
 
     var _this = _possibleConstructorReturn(this, (FileUpload.__proto__ || Object.getPrototypeOf(FileUpload)).call(this, props));
 
-    _this.onDrop = function (files) {
+    _this.handleFileAdded = function (file) {
+      var newValue = {
+        file: file,
+        type: 'ADD'
+      };
+
       _this.setState({
-        value: files
-      }, _this.props.onChange.bind(null, files));
+        value: newValue
+      }, _this.props.onChange.bind(null, newValue));
+    };
+
+    _this.removedfile = function (file) {
+      var newValue = {
+        file: file,
+        type: 'REMOVE'
+      };
+
+      _this.setState({
+        value: newValue
+      }, _this.props.onChange.bind(null, newValue));
     };
 
     _this.state = {
@@ -50,38 +66,16 @@ var FileUpload = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
-      return _react2.default.createElement(
-        'div',
-        null,
-        _react2.default.createElement(
-          _reactDropzone2.default,
-          { onDrop: this.onDrop, id: this.props.id, disableClick: this.props.disableClick,
-            multiple: this.props.multiple },
-          _react2.default.createElement(
-            'div',
-            null,
-            this.props.dropMessage
-          )
-        ),
-        this.state.value ? _react2.default.createElement(
-          'div',
-          null,
-          _react2.default.createElement(
-            'h2',
-            null,
-            'Uploading ',
-            this.state.value.length,
-            ' files...'
-          ),
-          _react2.default.createElement(
-            'div',
-            null,
-            this.state.value.map(function (file) {
-              return _react2.default.createElement('img', { src: file.preview });
-            })
-          )
-        ) : null
-      );
+      var config = this.props.componentConfig;
+      var djsConfig = this.props.djsConfig;
+
+      // For a list of all possible events (there are many), see README.md!
+      var eventHandlers = {
+        addedfile: this.handleFileAdded,
+        removedfile: this.removedfile
+      };
+
+      return _react2.default.createElement(_reactDropzoneComponent2.default, { config: config, eventHandlers: eventHandlers, djsConfig: djsConfig });
     }
   }]);
 
@@ -93,9 +87,8 @@ FileUpload.defaultProps = {
   classes: {},
   value: undefined,
   onChange: function onChange() {},
-  dropMessage: 'Try dropping some files here, or click to select files to upload.',
-  disableClick: false,
-  multiple: false
+  componentConfig: {},
+  djsConfig: {}
 };
 
 
