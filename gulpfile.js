@@ -82,7 +82,7 @@ gulp.task('default', function () {
  * Examples Build
  */
 gulp.task('build-examples', function() {
-  return browserify({
+  var stream = browserify({
            debug   : process.env.NODE_ENV != 'production',
            entries : [
              'examples/app.js'
@@ -93,6 +93,10 @@ gulp.task('build-examples', function() {
          .pipe(source('app.js'))
          .pipe(buffer())
          .pipe(gulp.dest('examples/build'));
+
+   stream.on('error', gutil.log);
+
+    return stream;
 });
 
 gulp.task('watch-examples', function() {

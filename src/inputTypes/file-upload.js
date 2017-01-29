@@ -1,5 +1,5 @@
 import React from 'react';
-import Dropzone from 'react-dropzone';
+import DropzoneComponent from 'react-dropzone-component';
 
 class FileUpload extends React.Component {
 
@@ -10,9 +10,8 @@ class FileUpload extends React.Component {
     classes     : {},
     value       : undefined,
     onChange    : () => {},
-    dropMessage: 'Try dropping some files here, or click to select files to upload.',
-    disableClick: false,
-    multiple: false
+    componentConfig: {},
+    djsConfig: {}
   };
 
   constructor(props){
@@ -31,34 +30,41 @@ class FileUpload extends React.Component {
   }
 
   render() {
-    return (
-      <div>
-        <Dropzone onDrop={this.onDrop} id={this.props.id} disableClick={this.props.disableClick}
-          multiple={this.props.multiple}>
-          <div>{this.props.dropMessage}</div>
-        </Dropzone>
-        { this.state.value ? (
-            <div>
-              <h2>Uploading {this.state.value.length} files...</h2>
-              <div>
-              {
-                this.state.value.map(file => {
-                  return <img src={file.preview} width="100px" height="100%"/>
-                })
-              }
-              </div>
-            </div>
-          ) : null
-        }
-        </div>
-      );
+    const config = this.props.componentConfig;
+    const djsConfig = this.props.djsConfig;
+
+    // For a list of all possible events (there are many), see README.md!
+    const eventHandlers = {
+      addedfile: this.handleFileAdded,
+      removedfile: this.removedfile
     }
 
-    onDrop = (files) => {
-      this.setState({
-        value: files
-      }, this.props.onChange.bind(null, files));
-    }
+    return (
+      <DropzoneComponent config={config} eventHandlers={eventHandlers} djsConfig={djsConfig} />
+    );
   }
 
-  module.exports = FileUpload;
+  handleFileAdded = (file) => {
+    const newValue = {
+      file:file,
+      type:'ADD'
+    };
+
+    this.setState({
+      value: newValue
+    }, this.props.onChange.bind(null, newValue));
+  }
+
+  removedfile = (file) => {
+    const newValue = {
+      file:file,
+      type:'REMOVE'
+    };
+
+    this.setState({
+      value: newValue
+    }, this.props.onChange.bind(null, newValue));
+  }
+}
+
+module.exports = FileUpload;

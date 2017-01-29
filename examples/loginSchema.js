@@ -16,7 +16,7 @@ module.exports = {
     "disableDefaultButton":true,
     "panelId" : "register-panel",
     "panelHeader" : "Log in to MyAwesomeSite",
-    "panelText" : "Please enter your email address and password to log in.",
+    "panelText" : "Please enter",
     "action" : {
       "default" : {
         "action" : "SUBMIT"
@@ -33,12 +33,26 @@ module.exports = {
   "questionSets" : [{
     "questionSetId" : "register-set",
     "questions" : [
+
       {
-        "questionId" : "images",
-        "question" : "Images",
-        "input" : {
-          "type" : "DropZone"
-        }
+         "questionId":"images",
+         "input":{
+            "name":"images",
+            "type":"FileUpload",
+            "required":true,
+            "props":{
+              "componentConfig" : {
+                "iconFiletypes": ['.jpg', '.png', '.gif'],
+                "showFiletypeIcon": true,
+                "postUrl": 'no-url'
+              },
+              "djsConfig" : {
+                "addRemoveLinks": true,
+                "acceptedFiles": "image/jpeg,image/png,image/gif",
+                "autoProcessQueue": false
+              }
+            }
+         }
       },
       {
         "questionId" : "eligibility",

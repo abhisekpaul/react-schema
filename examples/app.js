@@ -3,7 +3,6 @@ import TextField from 'material-ui/TextField';
 var ReactDOM      = window.ReactDOM = require('react-dom');
 import {cloneDeep} from 'lodash';
 import { Router, IndexRedirect, Route, hashHistory } from 'react-router';
-var Dropzone = require("dropzone");
 
 var SchemaExample = require('./SchemaExample');
 
@@ -20,19 +19,6 @@ var onRender = () => {
 };
 
 var onClick = () => {
-    var myDropzone = new Dropzone(this.refs["profile-form"], { url: "/file/post"});
-
-    // loginSchema2 = cloneDeep(loginSchema);
-    // ReactDOM.render(
-    // <div>
-    //       <SchemaExample schema={loginSchema2}
-    //                   questionAnswers={questionAnswers}
-    //                   onRender={onRender}
-    //                   onUpdate={onUpdate}
-    //                   renderRequiredAsterisk={() => <span>{'*'}</span>} />
-    // </div>,
-    // document.getElementById('login-form2')
-  // );
 };
 
 var onUpdate = (questionAnswers) => {
@@ -55,7 +41,7 @@ window.onload = function() {
     <div>
       <button onClick={onClick}>click me</button>
 
-        <div ref="profile-form" id="myI"></div>
+        <div id="myI"></div>
 
       <SchemaExample schema={loginSchema}
                   onRender={onRender}
@@ -67,22 +53,6 @@ window.onload = function() {
     document.getElementById('login-form')
   );
 
-
-  // ReactDOM.render(
-  //   <SchemaExample schema={schema}
-  //               disableSubmit={true}
-  //               onRender={onRender}
-  //               onUpdate={onUpdate}
-  //               onSwitchPanel={onSwitchPanel}
-  //               onSubmit={onSubmit} />,
-  //   document.getElementById('form')
-  // );
-
-  /*
-   * JSON View
-   */
-  $('#json-view')
-    .JSONView($('#json-view').html());
 
   $('#login-json-view')
     .JSONView($('#login-json-view').html());

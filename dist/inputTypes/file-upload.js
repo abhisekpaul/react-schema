@@ -77,7 +77,7 @@ var FileUpload = function (_React$Component) {
             'div',
             null,
             this.state.value.map(function (file) {
-              return _react2.default.createElement('img', { src: file.preview, width: '100px', height: '100%' });
+              return _react2.default.createElement('img', { src: file.preview });
             })
           )
         ) : null
