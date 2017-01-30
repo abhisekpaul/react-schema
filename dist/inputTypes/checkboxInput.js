@@ -52,7 +52,7 @@ var CheckboxInput = function (_React$Component) {
       if (this.props.value !== props.value) {
         this.setState({
           value: props.value
-        }, this.props.onChange.bind(null, props.value));
+        });
       }
     }
   }, {

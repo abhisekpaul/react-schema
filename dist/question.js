@@ -47,7 +47,7 @@ var Question = function (_React$Component) {
 
       var Input = InputTypes[this.props.input.type];
       if (!Input) {
-        throw new Error('Winterfell: Input Type "' + this.props.input.type + '" not defined as Winterfell Input Type');
+        throw new Error('ReactSchema: Input Type "' + this.props.input.type + '" not defined as ReactSchema Input Type');
       }
 
       /*
