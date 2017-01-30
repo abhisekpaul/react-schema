@@ -39,10 +39,6 @@ var onSubmit = (questionAnswers, target) => {
 window.onload = function() {
   ReactDOM.render(
     <div>
-      <button onClick={onClick}>click me</button>
-
-        <div id="myI"></div>
-
       <SchemaExample schema={loginSchema}
                   onRender={onRender}
                   onUpdate={onUpdate}
@@ -53,7 +49,4 @@ window.onload = function() {
     document.getElementById('login-form')
   );
 
-
-  $('#login-json-view')
-    .JSONView($('#login-json-view').html());
 };

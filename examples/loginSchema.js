@@ -15,7 +15,7 @@ module.exports = {
   "questionPanels" : [{
     "disableDefaultButton":true,
     "panelId" : "register-panel",
-    "panelHeader" : "Log in to MyAwesomeSite",
+    "panelHeader" : "React Schema Example",
     "panelText" : "Please enter",
     "action" : {
       "default" : {
@@ -33,6 +33,24 @@ module.exports = {
   "questionSets" : [{
     "questionSetId" : "register-set",
     "questions" : [
+      {
+        "questionId":"email",
+        "input":{
+          "name":"email",
+          "type":"materialTextField",
+          "required":true,
+          "props":{
+            "type":"email",
+            "fullWidth":true,
+            "hintText":"Enter your email address",
+            "floatingLabelText":"Email"
+          },
+          "default":"b@gmailung.com"
+        },
+        "validations":[{
+          "type":"isEmail"
+          }]
+        },
 
       {
          "questionId":"images",
