@@ -50,6 +50,7 @@ var MaterialTextField = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
+      var autoComplete = this.props.autoComplete ? this.props.autoComplete : 'off';
       return _react2.default.createElement(_TextField2.default, {
         id: this.props.id,
         type: this.props.type,
@@ -62,8 +63,8 @@ var MaterialTextField = function (_React$Component) {
         value: this.state.value,
         onChange: this.handleChange,
         onBlur: this.props.onBlur.bind(null, this.state.value),
-        onKeyDown: this.props.onKeyDown
-      });
+        onKeyDown: this.props.onKeyDown,
+        autoComplete: autoComplete });
     }
   }]);
 
