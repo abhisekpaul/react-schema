@@ -52,6 +52,20 @@ module.exports = {
           }]
         },
 
+        {
+          "questionId":"dob",
+          "input":{
+            "type":"MaterialDatePicker",
+            "props":{
+              "fullWidth":true,
+              "hintText":"Enter your date of birth"
+            }
+          },
+          "validations" : [{
+            "type" : "isDate"
+            }]
+          },
+
       {
          "questionId":"images",
          "input":{

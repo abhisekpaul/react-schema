@@ -37,6 +37,8 @@ var onSubmit = (questionAnswers, target) => {
 };
 
 window.onload = function() {
+  var newdate = new Date(98,1);
+  loginSchema.questionSets[0].questions[1].input.default = newdate;
   ReactDOM.render(
     <div>
       <SchemaExample schema={loginSchema}

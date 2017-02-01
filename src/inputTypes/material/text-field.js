@@ -39,6 +39,7 @@ class MaterialTextField extends React.Component {
   };
 
   render() {
+    const autoComplete = this.props.autoComplete ? this.props.autoComplete : 'off';
     return (
       <TextField
         id={this.props.id}
@@ -53,7 +54,7 @@ class MaterialTextField extends React.Component {
         onChange={this.handleChange}
         onBlur={this.props.onBlur.bind(null, this.state.value)}
         onKeyDown={this.props.onKeyDown}
-        />
+        autoComplete={autoComplete}/>
       );
     }
   }
