@@ -10,6 +10,10 @@ var _Checkbox = require('material-ui/Checkbox');
 
 var _Checkbox2 = _interopRequireDefault(_Checkbox);
 
+var _List = require('material-ui/List');
+
+var _GridList = require('material-ui/GridList');
+
 var _lodash = require('lodash');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -27,6 +31,22 @@ var WeeklyCalendar = function (_React$Component) {
     _classCallCheck(this, WeeklyCalendar);
 
     var _this = _possibleConstructorReturn(this, (WeeklyCalendar.__proto__ || Object.getPrototypeOf(WeeklyCalendar)).call(this, props));
+
+    _this.styles = {
+      root: {
+        display: 'flex',
+        flexWrap: 'wrap',
+        justifyContent: 'space-around'
+      },
+      gridList: {
+        width: 500,
+        height: 450,
+        overflowY: 'auto'
+      },
+      tileStyle: {
+        paddingTop: 50
+      }
+    };
 
     _this.onCheck = function (column, row, event, isInputChecked) {
       var value = (0, _lodash.cloneDeep)(_this.state.value);
@@ -93,51 +113,75 @@ var WeeklyCalendar = function (_React$Component) {
     value: function render() {
       var _this2 = this;
 
+      var _styles = this.styles,
+          root = _styles.root,
+          gridList = _styles.gridList,
+          tileStyle = _styles.tileStyle;
+
+      var columns = this.props.columns || [];
+      var rows = this.props.rows || [];
+
       return _react2.default.createElement(
-        'div',
-        { className: 'form-group col-lg-12' },
-        _react2.default.createElement(
-          'table',
-          { className: 'table table-striped visible-md visible-lg' },
-          _react2.default.createElement(
-            'thead',
-            null,
-            _react2.default.createElement(
-              'tr',
-              null,
-              this.props.columns.map(function (column) {
-                return _react2.default.createElement(
-                  'th',
-                  { key: column },
-                  column
-                );
-              })
-            )
-          ),
-          _react2.default.createElement(
-            'tbody',
-            null,
-            this.props.rows.map(function (row) {
-              return _react2.default.createElement(
-                'tr',
-                { key: row },
-                _this2.props.columns.map(function (column) {
-                  return _react2.default.createElement(
-                    'td',
-                    { key: column + row },
-                    _react2.default.createElement(_Checkbox2.default, {
-                      key: 'cb' + column + row,
-                      label: row,
-                      checked: _this2.getValue(column, row),
-                      disabled: _this2.props.disabled,
-                      onCheck: _this2.onCheck.bind(_this2, column, row) })
-                  );
-                })
-              );
+        _GridList.GridList,
+        null,
+        columns.map(function (column) {
+          return _react2.default.createElement(
+            _GridList.GridTile,
+            { key: column, title: column, titlePosition: 'top', style: tileStyle },
+            rows.map(function (row) {
+              return _react2.default.createElement(_Checkbox2.default, {
+                key: 'cb' + column + row,
+                label: row,
+                checked: _this2.getValue(column, row),
+                disabled: _this2.props.disabled,
+                onCheck: _this2.onCheck.bind(_this2, column, row) });
             })
-          )
-        )
+          );
+        })
       );
+
+      // return (
+      //   <div className="form-group col-lg-12">
+      //
+      //     <table className="table table-striped visible-md visible-lg">
+      //       <thead>
+      //         <tr>
+      //           {
+      //             this.props.columns.map(column => {
+      //               return (
+      //                 <th key={column}>{column}</th>
+      //               );
+      //             })
+      //           }
+      //         </tr>
+      //       </thead>
+      //       <tbody>
+      //         {
+      //           this.props.rows.map(row => {
+      //             return (
+      //               <tr key={row}>
+      //                 {
+      //                   this.props.columns.map ( column => {
+      //                     return (
+      //                       <td key={column + row}>
+      //                         <Checkbox
+      //                           key={`cb${column}${row}`}
+      //                           label={row}
+      //                           checked={this.getValue(column,row)}
+      //                           disabled={this.props.disabled}
+      //                           onCheck={this.onCheck.bind(this,column,row)}/>
+      //                       </td>
+      //                     );
+      //                   })
+      //                 }
+      //               </tr>
+      //             )
+      //           })
+      //         }
+      //       </tbody>
+      //     </table>
+      //   </div>
+      // );
     }
   }]);
 
