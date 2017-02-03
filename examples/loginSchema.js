@@ -34,6 +34,32 @@ module.exports = {
     "questionSetId" : "register-set",
     "questions" : [
       {
+        "questionId":"availabilities",
+        "question":"Your availibility",
+        "input":{
+           "type":"WeeklyCalendar",
+           "required":true,
+           "props":{
+             "columns" : [
+               "Monday",
+               "Tuesday",
+               "Wednesday",
+               "Thursday",
+               "Friday",
+               "Saturday",
+               "Sunday"
+             ],
+             "rows":[
+                 "Morning",
+                 "Afternoon",
+                 "Evening",
+                 "Overnight",
+                 "Urgent"
+             ]
+           }
+        }
+      },
+      {
         "questionId":"email",
         "input":{
           "name":"email",
