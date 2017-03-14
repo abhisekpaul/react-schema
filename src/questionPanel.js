@@ -231,7 +231,8 @@ class QuestionPanel extends React.Component {
                      onAnswerChange={this.handleAnswerChange.bind(this)}
                      onQuestionBlur={this.handleQuestionBlur.bind(this)}
                      onKeyDown={this.handleInputKeyDown.bind(this)}
-                     collapse={questionSet.collapse} />
+                     collapse={questionSet.collapse}
+                     collapsible={questionSet.collapsible} />
       );
     });
 

@@ -5,7 +5,7 @@ import AddIcon from 'material-ui/svg-icons/content/add-box';
 import RemoveIcon from 'material-ui/svg-icons/action/delete';
 import {List, ListItem} from 'material-ui/List';
 import Divider from 'material-ui/Divider';
-import {findWhere} from 'lodash';
+import {findWhere, set, cloneDeep} from 'lodash';
 
 import Question from '../question';
 
@@ -82,7 +82,7 @@ class ObjectInput extends React.Component {
   }
 
   handleChange = (questionSetId, questionId, questionAnswer, validations, validateOn) => {
-    let value = this.state.value;
+    let value = cloneDeep(this.state.value);
     value[questionId] = questionAnswer;
 
     this.setState({

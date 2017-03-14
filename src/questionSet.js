@@ -53,9 +53,10 @@ class QuestionSet extends React.Component {
     );
 
     const expand = !this.props.collapse;
+    const triggerDisabled = !this.props.collapsible;
 
     return (
-      <Collapsible trigger={header} open={expand}>
+      <Collapsible trigger={header} open={expand} triggerDisabled={triggerDisabled}>
         {questions}
       </Collapsible>
     );

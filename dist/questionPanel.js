@@ -261,7 +261,8 @@ var QuestionPanel = function (_React$Component) {
           onAnswerChange: _this4.handleAnswerChange.bind(_this4),
           onQuestionBlur: _this4.handleQuestionBlur.bind(_this4),
           onKeyDown: _this4.handleInputKeyDown.bind(_this4),
-          collapse: questionSet.collapse });
+          collapse: questionSet.collapse,
+          collapsible: questionSet.collapsible });
       });
 
       return React.createElement(

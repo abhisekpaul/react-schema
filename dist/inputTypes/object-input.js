@@ -65,7 +65,7 @@ var ObjectInput = (_temp = _class = function (_React$Component) {
     var _this = (0, _possibleConstructorReturn3.default)(this, (ObjectInput.__proto__ || (0, _getPrototypeOf2.default)(ObjectInput)).call(this, props));
 
     _this.handleChange = function (questionSetId, questionId, questionAnswer, validations, validateOn) {
-      var value = _this.state.value;
+      var value = (0, _lodash.cloneDeep)(_this.state.value);
       value[questionId] = questionAnswer;
 
       _this.setState({

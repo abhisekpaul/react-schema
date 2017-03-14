@@ -58,6 +58,10 @@ var _reactCollapsible = require('react-collapsible');
 
 var _reactCollapsible2 = _interopRequireDefault(_reactCollapsible);
 
+var _RaisedButton = require('material-ui/RaisedButton');
+
+var _RaisedButton2 = _interopRequireDefault(_RaisedButton);
+
 var _question = require('../question');
 
 var _question2 = _interopRequireDefault(_question);
@@ -81,14 +85,15 @@ var ArrayInput = (_temp = _class = function (_React$Component) {
         });
 
         var header = _react2.default.createElement(
-          'div',
-          null,
-          'Item-' + (index + 1),
-          _react2.default.createElement(
-            _IconButton2.default,
-            { tooltip: 'Remove Item', onTouchTap: _this.removeItem.bind(_this, index), style: { marginLeft: 200 } },
-            _react2.default.createElement(_delete2.default, null)
-          )
+          _List.ListItem,
+          {
+            disabled: true,
+            rightIcon: _react2.default.createElement(
+              _IconButton2.default,
+              { tooltip: 'Remove Item', onTouchTap: _this.removeItem.bind(_this, index), style: { marginLeft: 200 } },
+              _react2.default.createElement(_delete2.default, null)
+            ) },
+          'Item-' + (index + 1)
         );
 
         return _react2.default.createElement(
@@ -186,15 +191,18 @@ var ArrayInput = (_temp = _class = function (_React$Component) {
       var value = this.state.value || [];
       var description = this.props.description;
 
+      var header = _react2.default.createElement(
+        _List.ListItem,
+        {
+          disabled: true,
+          rightIcon: _react2.default.createElement(_RaisedButton2.default, { label: 'Add', secondary: true, onTouchTap: this.addItem }) },
+        description
+      );
+
       return _react2.default.createElement(
         'div',
         null,
-        description,
-        _react2.default.createElement(
-          _IconButton2.default,
-          { tooltip: 'Add an item', onTouchTap: this.addItem },
-          _react2.default.createElement(_addBox2.default, null)
-        ),
+        header,
         this.renderQuestions(value)
       );
     }

@@ -89,10 +89,11 @@ var QuestionSet = function (_React$Component) {
       );
 
       var expand = !this.props.collapse;
+      var triggerDisabled = !this.props.collapsible;
 
       return React.createElement(
         _reactCollapsible2.default,
-        { trigger: header, open: expand },
+        { trigger: header, open: expand, triggerDisabled: triggerDisabled },
         questions
       );
     }
