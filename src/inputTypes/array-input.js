@@ -8,6 +8,7 @@ import Divider from 'material-ui/Divider';
 import {findWhere} from 'lodash';
 import Collapsible from 'react-collapsible';
 import RaisedButton from 'material-ui/RaisedButton';
+import Avatar from 'material-ui/Avatar';
 
 import Question from '../question';
 
@@ -46,6 +47,7 @@ class ArrayInput extends React.Component {
   render() {
     let value = this.state.value || [];
     const description = this.props.description;
+    const count = value.length;
 
     const header = (
       <ListItem
@@ -53,7 +55,7 @@ class ArrayInput extends React.Component {
         rightIcon={
           <RaisedButton label="Add" secondary={true} onTouchTap={this.addItem}/>
         }>
-        {description}
+        {description}({count})
       </ListItem>
     )
 
@@ -103,6 +105,8 @@ class ArrayInput extends React.Component {
           return questionrenderer;
         });
 
+        const label = this.props.id;
+
         const header = (
           <ListItem
             disabled={true}
@@ -110,8 +114,12 @@ class ArrayInput extends React.Component {
               <IconButton tooltip="Remove Item" onTouchTap={this.removeItem.bind(this, index)} style={{marginLeft:200}}>
                 <RemoveIcon/>
               </IconButton>
-            }>
-            {`Item-${index+1}`}
+            }
+            leftAvatar={
+              <Avatar>{index+1}</Avatar>
+            }
+            >
+            {`${label}-item`}
           </ListItem>
         )
 

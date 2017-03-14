@@ -50,6 +50,7 @@ class MaterialSelectField extends React.Component {
       id={this.props.id}
       fullWidth={this.props.fullWidth}
       hintText={this.props.hintText}
+      floatingLabelText={this.props.floatingLabelText}
       value={this.state.value}
       onChange={this.handleChange.bind(this)}
       onBlur={this.props.onBlur.bind(null, this.state.value)}
