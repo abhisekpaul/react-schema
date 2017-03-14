@@ -1,6 +1,7 @@
 var React = require('react');
 var _     = require('lodash').noConflict();
 import {List, ListItem} from 'material-ui/List';
+import Collapsible from 'react-collapsible';
 import Question from './question';
 
 class QuestionSet extends React.Component {
@@ -8,7 +9,6 @@ class QuestionSet extends React.Component {
   render() {
     var questions = this.props.questions.map(question => {
       return (
-        <ListItem disabled={true}>
           <Question key={question.questionId}
                     questionSetId={this.props.id}
                     questionId={question.questionId}
@@ -27,8 +27,6 @@ class QuestionSet extends React.Component {
                     onAnswerChange={this.props.onAnswerChange}
                     onQuestionBlur={this.props.onQuestionBlur}
                     onKeyDown={this.props.onKeyDown} />
-        </ListItem>
-
       );
     });
 
@@ -54,16 +52,12 @@ class QuestionSet extends React.Component {
       </div>
     );
 
-    return (
-      <List>
-        <ListItem
-             primaryText={header}
-             initiallyOpen={true}
-             primaryTogglesNestedList={true}
-             nestedItems={questions}>
-        </ListItem>
-      </List>
+    const expand = !this.props.collapse;
 
+    return (
+      <Collapsible trigger={header} open={expand}>
+        {questions}
+      </Collapsible>
     );
   }
 

@@ -33,6 +33,7 @@ module.exports = {
   "questionSets" : [{
     "questionSetHeader" : "Login Details",
     "questionSetId" : "register-set",
+    "collapse":false,
     "questions" : [
       // {
       //   "questionId":"email",

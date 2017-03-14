@@ -22,6 +22,10 @@ var _inherits3 = _interopRequireDefault(_inherits2);
 
 var _List = require('material-ui/List');
 
+var _reactCollapsible = require('react-collapsible');
+
+var _reactCollapsible2 = _interopRequireDefault(_reactCollapsible);
+
 var _question = require('./question');
 
 var _question2 = _interopRequireDefault(_question);
@@ -45,28 +49,24 @@ var QuestionSet = function (_React$Component) {
       var _this2 = this;
 
       var questions = this.props.questions.map(function (question) {
-        return React.createElement(
-          _List.ListItem,
-          { disabled: true },
-          React.createElement(_question2.default, { key: question.questionId,
-            questionSetId: _this2.props.id,
-            questionId: question.questionId,
-            question: question.question,
-            validateOn: question.validateOn,
-            validations: question.validations,
-            text: question.text,
-            postText: question.postText,
-            value: _this2.props.questionAnswers[question.questionId],
-            input: question.input,
-            classes: _this2.props.classes,
-            renderError: _this2.props.renderError,
-            renderRequiredAsterisk: _this2.props.renderRequiredAsterisk,
-            questionAnswers: _this2.props.questionAnswers,
-            validationErrors: _this2.props.validationErrors,
-            onAnswerChange: _this2.props.onAnswerChange,
-            onQuestionBlur: _this2.props.onQuestionBlur,
-            onKeyDown: _this2.props.onKeyDown })
-        );
+        return React.createElement(_question2.default, { key: question.questionId,
+          questionSetId: _this2.props.id,
+          questionId: question.questionId,
+          question: question.question,
+          validateOn: question.validateOn,
+          validations: question.validations,
+          text: question.text,
+          postText: question.postText,
+          value: _this2.props.questionAnswers[question.questionId],
+          input: question.input,
+          classes: _this2.props.classes,
+          renderError: _this2.props.renderError,
+          renderRequiredAsterisk: _this2.props.renderRequiredAsterisk,
+          questionAnswers: _this2.props.questionAnswers,
+          validationErrors: _this2.props.validationErrors,
+          onAnswerChange: _this2.props.onAnswerChange,
+          onQuestionBlur: _this2.props.onQuestionBlur,
+          onKeyDown: _this2.props.onKeyDown });
       });
 
       var header = React.createElement(
@@ -88,14 +88,12 @@ var QuestionSet = function (_React$Component) {
         ) : undefined
       );
 
+      var expand = !this.props.collapse;
+
       return React.createElement(
-        _List.List,
-        null,
-        React.createElement(_List.ListItem, {
-          primaryText: header,
-          initiallyOpen: true,
-          primaryTogglesNestedList: true,
-          nestedItems: questions })
+        _reactCollapsible2.default,
+        { trigger: header, open: expand },
+        questions
       );
     }
   }]);

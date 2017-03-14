@@ -79,18 +79,25 @@ var ArrayInput = (_temp = _class = function (_React$Component) {
         var questionsRenderer = questionRenderers.map(function (questionrenderer) {
           return questionrenderer;
         });
+
+        var header = _react2.default.createElement(
+          'div',
+          null,
+          'Item-' + (index + 1),
+          _react2.default.createElement(
+            _IconButton2.default,
+            { tooltip: 'Remove Item', onTouchTap: _this.removeItem.bind(_this, index), style: { marginLeft: 200 } },
+            _react2.default.createElement(_delete2.default, null)
+          )
+        );
+
         return _react2.default.createElement(
           _List.List,
           { key: 'nested' + index },
           _react2.default.createElement(
             _reactCollapsible2.default,
-            { trigger: '' + (index + 1) },
+            { trigger: header },
             questionRenderers
-          ),
-          _react2.default.createElement(
-            _IconButton2.default,
-            { tooltip: 'Remove Item', onTouchTap: _this.removeItem.bind(_this, index) },
-            _react2.default.createElement(_delete2.default, null)
           )
         );
         // value={this.props.questionAnswers[question.questionId]}
@@ -197,28 +204,24 @@ var ArrayInput = (_temp = _class = function (_React$Component) {
       var result = [];
       for (var key in item) {
         var question = this.getQuestion(key);
-        var questionItem = _react2.default.createElement(
-          _List.ListItem,
-          { disabled: true },
-          _react2.default.createElement(_question2.default, { key: question.questionId + '_' + index,
-            questionSetId: this.props.id,
-            questionId: question.questionId,
-            question: question.question,
-            validateOn: question.validateOn,
-            validations: question.validations,
-            text: question.text,
-            value: item[key],
-            postText: question.postText,
-            input: question.input,
-            classes: this.props.classes,
-            renderError: this.props.renderError,
-            renderRequiredAsterisk: this.props.renderRequiredAsterisk,
-            questionAnswers: this.props.questionAnswers,
-            validationErrors: this.props.validationErrors,
-            onAnswerChange: this.handleAnswerChange.bind(this, index),
-            onQuestionBlur: this.props.onQuestionBlur,
-            onKeyDown: this.props.onKeyDown })
-        );
+        var questionItem = _react2.default.createElement(_question2.default, { key: question.questionId + '_' + index,
+          questionSetId: this.props.id,
+          questionId: question.questionId,
+          question: question.question,
+          validateOn: question.validateOn,
+          validations: question.validations,
+          text: question.text,
+          value: item[key],
+          postText: question.postText,
+          input: question.input,
+          classes: this.props.classes,
+          renderError: this.props.renderError,
+          renderRequiredAsterisk: this.props.renderRequiredAsterisk,
+          questionAnswers: this.props.questionAnswers,
+          validationErrors: this.props.validationErrors,
+          onAnswerChange: this.handleAnswerChange.bind(this, index),
+          onQuestionBlur: this.props.onQuestionBlur,
+          onKeyDown: this.props.onKeyDown });
         result.push(questionItem);
       }
       return result;

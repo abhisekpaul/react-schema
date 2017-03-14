@@ -260,7 +260,8 @@ var QuestionPanel = function (_React$Component) {
           validationErrors: _this4.state.validationErrors,
           onAnswerChange: _this4.handleAnswerChange.bind(_this4),
           onQuestionBlur: _this4.handleQuestionBlur.bind(_this4),
-          onKeyDown: _this4.handleInputKeyDown.bind(_this4) });
+          onKeyDown: _this4.handleInputKeyDown.bind(_this4),
+          collapse: questionSet.collapse });
       });
 
       return React.createElement(
