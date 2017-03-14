@@ -13,7 +13,7 @@ module.exports = {
     "panelId" : "register-panel"
   }],
   "questionPanels" : [{
-    "disableDefaultButton":true,
+    "disableDefaultButton":false,
     "panelId" : "register-panel",
     "panelHeader" : "React Schema Example",
     "panelText" : "Please enter",
@@ -31,93 +31,208 @@ module.exports = {
     }]
   }],
   "questionSets" : [{
+    "questionSetHeader" : "Login Details",
     "questionSetId" : "register-set",
     "questions" : [
-      {
-        "questionId":"availabilities",
-        "question":"Your availibility",
-        "input":{
-           "type":"WeeklyCalendar",
-           "required":true,
-           "props":{
-             "columns" : [
-               "Monday",
-               "Tuesday",
-               "Wednesday",
-               "Thursday",
-               "Friday",
-               "Saturday",
-               "Sunday"
-             ],
-             "rows":[
-                 "Morning",
-                 "Afternoon",
-                 "Evening",
-                 "Overnight",
-                 "Urgent"
-             ]
-           }
-        }
-      },
-      {
-        "questionId":"email",
-        "input":{
-          "name":"email",
-          "type":"materialTextField",
-          "required":true,
-          "props":{
-            "type":"email",
-            "fullWidth":true,
-            "hintText":"Enter your email address",
-            "floatingLabelText":"Email"
-          },
-          "default":"b@gmailung.com"
-        },
-        "validations":[{
-          "type":"isEmail"
-          }]
-        },
-
+      // {
+      //   "questionId":"email",
+      //   "input":{
+      //     "name":"email",
+      //     "type":"materialTextField",
+      //     "required":true,
+      //     "props":{
+      //       "type":"email",
+      //       "fullWidth":true,
+      //       "hintText":"Enter your email address",
+      //       "floatingLabelText":"Email"
+      //     }
+      //   },
+      //   "validations":[{
+      //     "type":"isEmail"
+      //     }]
+      //   },
         {
-          "questionId":"dob",
+          "questionId":"helperTypes",
+          "question":"",
           "input":{
-            "type":"MaterialDatePicker",
+            "type":"MultiSelect",
+            "placeholder":"All. Or select specific helper types.",
+            "options":[
+              {text:"Baby Sitter", value:"Baby Sitter"},
+              {text:"Nanny", value:"Nanny"},
+              {text:"Part Time Nanny", value:"Part Time Nanny"},
+              {text:"Full Time Nanny", value:"Full Time Nanny"},
+              {text:"After School Nanny", value:"After School Nanny"},
+              {text:"Live In Nanny", value:"Live In Nanny"},
+              {text:"Au Pair", value:"Au Pair"},
+              {text:"Child Minder", value:"Child Minder"},
+              {text:"Mothers Help", value:"Mothers Help"},
+              {text:"Maternity Nurse and Midwife", value:"Maternity Nurse and Midwife"},
+              {text:"House Keepers and Cleaners", value:"House Keepers and Cleaners"},
+              {text:"Tutor", value:"Tutor"}
+            ],
             "props":{
-              "fullWidth":true,
-              "hintText":"Enter your date of birth"
+              "multi":true,
+              "simpleValue":true,
+              "ensureArray":true
             }
           },
-          "validations" : [{
-            "type" : "isDate"
-            }]
-          },
-
-      {
-         "questionId":"images",
-         "input":{
-            "name":"images",
-            "type":"FileUpload",
-            "required":true,
+          "validations":[
+            {
+              "type":"isLength",
+              "params":[
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "questionId" : "feature",
+          "question" : "Feature",
+          "input" : {
+            "type" : "ObjectInput",
             "props":{
-              "componentConfig" : {
-                "iconFiletypes": ['.jpg', '.png', '.gif'],
-                "showFiletypeIcon": true,
-                "postUrl": 'no-url'
-              },
-              "djsConfig" : {
-                "addRemoveLinks": true,
-                "acceptedFiles": "image/jpeg,image/png,image/gif",
-                "autoProcessQueue": false
+              "description":"Please add eligibility criteria",
+              "elements":{
+                "questions":[
+                  {
+                    "questionId" : "Nestedfield1",
+                    "question" : "Nested field 1",
+                    "input" : {
+                      "type" : "materialTextField",
+                      "placeholder" : "Email Address8",
+                      "default" : "abhisekpaul@gmail.com1"
+                    }
+                  },
+                  {
+                    "questionId" : "Nestedfield2",
+                    "question" : "Nested field 2",
+                    "input" : {
+                      "type" : "materialTextField",
+                      "placeholder" : "Email Address1",
+                      "default" : "abhisekpaul@gmail.com2"
+                    }
+                  },
+                  {
+                    "questionId" : "subfeature",
+                    "question" : "SubFeature",
+                    "input" : {
+                      "type" : "ObjectInput",
+                      "props":{
+                        "description":"Please add eligibility criteria",
+                        "elements":{
+                          "questions":[
+                            {
+                              "questionId" : "Nestedfield11",
+                              "question" : "Nested field 11",
+                              "input" : {
+                                "type" : "materialTextField",
+                                "placeholder" : "Email Address18",
+                                "default" : "abhisekpaul@gmail.com11"
+                              }
+                            },
+                            {
+                              "questionId" : "Nestedfield12",
+                              "question" : "Nested field 12",
+                              "input" : {
+                                "type" : "materialTextField",
+                                "placeholder" : "Email Address81",
+                                "default" : "abhisekpaul@gmail.com12"
+                              }
+                            }
+                          ]
+                        }
+                      }
+
+                    }
+                  }
+                ]
               }
             }
-         }
-      },
+
+          }
+        },
+      // {
+      //   "questionId": "location",
+      //   "question": "",
+      //   "input": {
+      //     "type": "LocationInput",
+      //     "placeholder": "Please type POSTCODE and select the location",
+      //     "props": {
+      //       "autoActivateFirstSuggest": true,
+      //       "country": "gb",
+      //       "radius": 20,
+      //       "initialValue": ""
+      //     }
+      //   },
+      //   "validations": [{
+      //     "type": "isLocation"
+      //   }]
+      // },
+      // {
+      //   "questionId":"availabilities",
+      //   "question":"Your availibility",
+      //   "input":{
+      //      "type":"WeeklyCalendar",
+      //      "props":{
+      //        "columns" : [
+      //          "Monday",
+      //          "Tuesday",
+      //          "Wednesday",
+      //          "Thursday",
+      //          "Friday",
+      //          "Saturday",
+      //          "Sunday"
+      //        ],
+      //        "rows":[
+      //            "Morning",
+      //            "Afternoon",
+      //            "Evening",
+      //            "Overnight",
+      //            "Urgent"
+      //        ]
+      //      }
+      //   }
+      // },
+      //   {
+      //     "questionId":"dob",
+      //     "input":{
+      //       "type":"MaterialDatePicker",
+      //       "props":{
+      //         "fullWidth":true,
+      //         "hintText":"Enter your date of birth"
+      //       }
+      //     },
+      //     "validations" : [{
+      //       "type" : "isDate"
+      //       }]
+      //     },
+      //
+      // {
+      //    "questionId":"images",
+      //    "input":{
+      //       "name":"images",
+      //       "type":"FileUpload",
+      //       "props":{
+      //         "componentConfig" : {
+      //           "iconFiletypes": ['.jpg', '.png', '.gif'],
+      //           "showFiletypeIcon": true,
+      //           "postUrl": 'no-url'
+      //         },
+      //         "djsConfig" : {
+      //           "addRemoveLinks": true,
+      //           "acceptedFiles": "image/jpeg,image/png,image/gif",
+      //           "autoProcessQueue": false,
+      //           "clickable":true
+      //         }
+      //       }
+      //    }
+      // },
       {
         "questionId" : "eligibility",
         "question" : "Eligibility",
         "input" : {
           "type" : "ArrayInput",
-          "required" : true,
           "props":{
             "description":"Please add eligibility criteria",
             "elements":{
@@ -128,7 +243,6 @@ module.exports = {
                   "input" : {
                     "type" : "materialTextField",
                     "placeholder" : "Email Address",
-                    "required" : true,
                     "default" : "abhisekpaul@gmail.com"
                   },
                   "validations" : [{
@@ -140,7 +254,6 @@ module.exports = {
                   "input":{
                     "name":"description",
                     "type":"materialTextField",
-                    "required":true,
                     "props":{
                       "fullWidth":true,
                       "multiLine":true,

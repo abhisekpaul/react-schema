@@ -1,6 +1,30 @@
 'use strict';
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _getIterator2 = require('babel-runtime/core-js/get-iterator');
+
+var _getIterator3 = _interopRequireDefault(_getIterator2);
+
+var _getPrototypeOf = require('babel-runtime/core-js/object/get-prototype-of');
+
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+var _classCallCheck2 = require('babel-runtime/helpers/classCallCheck');
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = require('babel-runtime/helpers/createClass');
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = require('babel-runtime/helpers/possibleConstructorReturn');
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = require('babel-runtime/helpers/inherits');
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _class, _temp;
 
 var _react = require('react');
 
@@ -30,45 +54,43 @@ var _Divider2 = _interopRequireDefault(_Divider);
 
 var _lodash = require('lodash');
 
+var _reactCollapsible = require('react-collapsible');
+
+var _reactCollapsible2 = _interopRequireDefault(_reactCollapsible);
+
 var _question = require('../question');
 
 var _question2 = _interopRequireDefault(_question);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var ArrayInput = function (_React$Component) {
-  _inherits(ArrayInput, _React$Component);
+var ArrayInput = (_temp = _class = function (_React$Component) {
+  (0, _inherits3.default)(ArrayInput, _React$Component);
 
   function ArrayInput(props) {
-    _classCallCheck(this, ArrayInput);
+    (0, _classCallCheck3.default)(this, ArrayInput);
 
-    var _this = _possibleConstructorReturn(this, (ArrayInput.__proto__ || Object.getPrototypeOf(ArrayInput)).call(this, props));
+    var _this = (0, _possibleConstructorReturn3.default)(this, (ArrayInput.__proto__ || (0, _getPrototypeOf2.default)(ArrayInput)).call(this, props));
 
     _this.renderQuestions = function (value) {
       var questions = value.map(function (item, index) {
 
         var questionRenderers = _this.renderQuestion(item, index);
+        var questionsRenderer = questionRenderers.map(function (questionrenderer) {
+          return questionrenderer;
+        });
         return _react2.default.createElement(
           _List.List,
-          null,
+          { key: 'nested' + index },
           _react2.default.createElement(
-            _List.ListItem,
-            { disabled: true,
-              rightAvatar: _react2.default.createElement(
-                _IconButton2.default,
-                { tooltip: 'Remove Item', onTouchTap: _this.removeItem.bind(_this, index) },
-                _react2.default.createElement(_delete2.default, null)
-              )
-            },
-            questionRenderers.map(function (questionrenderer) {
-              return questionrenderer;
-            })
+            _reactCollapsible2.default,
+            { trigger: '' + (index + 1) },
+            questionRenderers
+          ),
+          _react2.default.createElement(
+            _IconButton2.default,
+            { tooltip: 'Remove Item', onTouchTap: _this.removeItem.bind(_this, index) },
+            _react2.default.createElement(_delete2.default, null)
           )
         );
         // value={this.props.questionAnswers[question.questionId]}
@@ -92,7 +114,7 @@ var ArrayInput = function (_React$Component) {
       var _iteratorError = undefined;
 
       try {
-        for (var _iterator = questions[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+        for (var _iterator = (0, _getIterator3.default)(questions), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
           var item = _step.value;
 
           newItem[item.questionId] = "";
@@ -142,7 +164,7 @@ var ArrayInput = function (_React$Component) {
     return _this;
   }
 
-  _createClass(ArrayInput, [{
+  (0, _createClass3.default)(ArrayInput, [{
     key: 'componentWillReceiveProps',
     value: function componentWillReceiveProps(props) {
       if (this.props.value !== props.value) {
@@ -175,24 +197,28 @@ var ArrayInput = function (_React$Component) {
       var result = [];
       for (var key in item) {
         var question = this.getQuestion(key);
-        var questionItem = _react2.default.createElement(_question2.default, { key: question.questionId + '_' + index,
-          questionSetId: this.props.id,
-          questionId: question.questionId,
-          question: question.question,
-          validateOn: question.validateOn,
-          validations: question.validations,
-          text: question.text,
-          value: item[key],
-          postText: question.postText,
-          input: question.input,
-          classes: this.props.classes,
-          renderError: this.props.renderError,
-          renderRequiredAsterisk: this.props.renderRequiredAsterisk,
-          questionAnswers: this.props.questionAnswers,
-          validationErrors: this.props.validationErrors,
-          onAnswerChange: this.handleAnswerChange.bind(this, index),
-          onQuestionBlur: this.props.onQuestionBlur,
-          onKeyDown: this.props.onKeyDown });
+        var questionItem = _react2.default.createElement(
+          _List.ListItem,
+          { disabled: true },
+          _react2.default.createElement(_question2.default, { key: question.questionId + '_' + index,
+            questionSetId: this.props.id,
+            questionId: question.questionId,
+            question: question.question,
+            validateOn: question.validateOn,
+            validations: question.validations,
+            text: question.text,
+            value: item[key],
+            postText: question.postText,
+            input: question.input,
+            classes: this.props.classes,
+            renderError: this.props.renderError,
+            renderRequiredAsterisk: this.props.renderRequiredAsterisk,
+            questionAnswers: this.props.questionAnswers,
+            validationErrors: this.props.validationErrors,
+            onAnswerChange: this.handleAnswerChange.bind(this, index),
+            onQuestionBlur: this.props.onQuestionBlur,
+            onKeyDown: this.props.onKeyDown })
+        );
         result.push(questionItem);
       }
       return result;
@@ -204,12 +230,8 @@ var ArrayInput = function (_React$Component) {
       return result;
     }
   }]);
-
   return ArrayInput;
-}(_react2.default.Component);
-
-ArrayInput.propTypes = {};
-ArrayInput.defaultProps = {
+}(_react2.default.Component), _class.propTypes = {}, _class.defaultProps = {
   classes: {},
   name: undefined,
   id: undefined,
@@ -218,7 +240,7 @@ ArrayInput.defaultProps = {
   onChange: function onChange() {},
   onBlur: function onBlur() {},
   onKeyDown: function onKeyDown() {}
-};
+}, _temp);
 
 
 module.exports = ArrayInput;

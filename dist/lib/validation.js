@@ -1,6 +1,10 @@
 'use strict';
 
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+var _typeof2 = require('babel-runtime/helpers/typeof');
+
+var _typeof3 = _interopRequireDefault(_typeof2);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var _ = require('lodash').noConflict();
 var Validator = require('validator');
@@ -196,7 +200,7 @@ var addValidationMethod = function addValidationMethod(name, method) {
  * @param  array methods Methods to add. name => func
  */
 var addValidationMethods = function addValidationMethods(methods) {
-  if ((typeof methods === 'undefined' ? 'undefined' : _typeof(methods)) !== 'object') {
+  if ((typeof methods === 'undefined' ? 'undefined' : (0, _typeof3.default)(methods)) !== 'object') {
     throw new Error('Winterfell: First parameter of addValidationMethods ' + 'must be of type object');
   }
 

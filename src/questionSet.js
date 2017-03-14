@@ -1,6 +1,6 @@
 var React = require('react');
 var _     = require('lodash').noConflict();
-
+import {List, ListItem} from 'material-ui/List';
 import Question from './question';
 
 class QuestionSet extends React.Component {
@@ -8,28 +8,31 @@ class QuestionSet extends React.Component {
   render() {
     var questions = this.props.questions.map(question => {
       return (
-        <Question key={question.questionId}
-                  questionSetId={this.props.id}
-                  questionId={question.questionId}
-                  question={question.question}
-                  validateOn={question.validateOn}
-                  validations={question.validations}
-                  text={question.text}
-                  postText={question.postText}
-                  value={this.props.questionAnswers[question.questionId]}
-                  input={question.input}
-                  classes={this.props.classes}
-                  renderError={this.props.renderError}
-                  renderRequiredAsterisk={this.props.renderRequiredAsterisk}
-                  questionAnswers={this.props.questionAnswers}
-                  validationErrors={this.props.validationErrors}
-                  onAnswerChange={this.props.onAnswerChange}
-                  onQuestionBlur={this.props.onQuestionBlur}
-                  onKeyDown={this.props.onKeyDown} />
+        <ListItem disabled={true}>
+          <Question key={question.questionId}
+                    questionSetId={this.props.id}
+                    questionId={question.questionId}
+                    question={question.question}
+                    validateOn={question.validateOn}
+                    validations={question.validations}
+                    text={question.text}
+                    postText={question.postText}
+                    value={this.props.questionAnswers[question.questionId]}
+                    input={question.input}
+                    classes={this.props.classes}
+                    renderError={this.props.renderError}
+                    renderRequiredAsterisk={this.props.renderRequiredAsterisk}
+                    questionAnswers={this.props.questionAnswers}
+                    validationErrors={this.props.validationErrors}
+                    onAnswerChange={this.props.onAnswerChange}
+                    onQuestionBlur={this.props.onQuestionBlur}
+                    onKeyDown={this.props.onKeyDown} />
+        </ListItem>
+
       );
     });
 
-    return (
+    const header = (
       <div className={this.props.classes.questionSet}>
         {typeof this.props.questionSetHeader !== 'undefined'
            || typeof this.props.questionSetText !== 'undefined'
@@ -48,8 +51,19 @@ class QuestionSet extends React.Component {
                </div>
              )
              : undefined}
-        {questions}
       </div>
+    );
+
+    return (
+      <List>
+        <ListItem
+             primaryText={header}
+             initiallyOpen={true}
+             primaryTogglesNestedList={true}
+             nestedItems={questions}>
+        </ListItem>
+      </List>
+
     );
   }
 

@@ -6,6 +6,7 @@ import RemoveIcon from 'material-ui/svg-icons/action/delete';
 import {List, ListItem} from 'material-ui/List';
 import Divider from 'material-ui/Divider';
 import {findWhere} from 'lodash';
+import Collapsible from 'react-collapsible';
 
 import Question from '../question';
 
@@ -61,6 +62,7 @@ class ArrayInput extends React.Component {
       for(let key in item) {
         let question = this.getQuestion(key);
         let questionItem = (
+          <ListItem disabled={true}>
             <Question key={`${question.questionId}_${index}`}
                       questionSetId={this.props.id}
                       questionId={question.questionId}
@@ -79,6 +81,7 @@ class ArrayInput extends React.Component {
                       onAnswerChange={this.handleAnswerChange.bind(this,index)}
                       onQuestionBlur={this.props.onQuestionBlur}
                       onKeyDown={this.props.onKeyDown} />
+                  </ListItem>
         )
         result.push(questionItem);
       }
@@ -89,22 +92,19 @@ class ArrayInput extends React.Component {
       let questions = value.map((item, index) => {
 
         let questionRenderers = this.renderQuestion(item, index);
+        let questionsRenderer = questionRenderers.map(questionrenderer => {
+          return questionrenderer;
+        });
         return (
-          <List>
-            <ListItem disabled={true}
-              rightAvatar={
-                  <IconButton tooltip="Remove Item" onTouchTap={this.removeItem.bind(this, index)}>
-                    <RemoveIcon/>
-                  </IconButton>
-              }
-              >
-              {
-                questionRenderers.map(questionrenderer => {
-                  return questionrenderer;
-                })
-              }
-            </ListItem>
+          <List key={`nested${index}`}>
+            <Collapsible trigger={`${index+1}`}>
+              {questionRenderers}
+            </Collapsible>
+            <IconButton tooltip="Remove Item" onTouchTap={this.removeItem.bind(this, index)}>
+              <RemoveIcon/>
+            </IconButton>
           </List>
+
         )
         // value={this.props.questionAnswers[question.questionId]}
       });

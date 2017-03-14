@@ -33,6 +33,9 @@ class MultiSelect extends React.Component {
   }
 
   handleChange = (value) => {
+    if(this.props.ensureArray){
+      value = value.split(',');
+    }
     this.setState({
       value: value,
     }, this.props.onChange.bind(null, value));

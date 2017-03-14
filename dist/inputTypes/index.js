@@ -1,6 +1,10 @@
 'use strict';
 
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+var _typeof2 = require('babel-runtime/helpers/typeof');
+
+var _typeof3 = _interopRequireDefault(_typeof2);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var React = require('react');
 
@@ -22,7 +26,8 @@ var inputTypes = {
   LocationInput: require('./location-input'),
   WeeklyCalendar: require('./weekly-calendar'),
   FileUpload: require('./file-upload'),
-  ArrayInput: require('./array-input')
+  ArrayInput: require('./array-input'),
+  ObjectInput: require('./object-input')
 };
 
 /**
@@ -49,7 +54,7 @@ inputTypes.addInputType = function (name, instance) {
  * @param  object types InputTypes to add. string => Component
  */
 inputTypes.addInputTypes = function (types) {
-  if ((typeof types === 'undefined' ? 'undefined' : _typeof(types)) !== 'object') {
+  if ((typeof types === 'undefined' ? 'undefined' : (0, _typeof3.default)(types)) !== 'object') {
     throw new Error('ReactSchema: First parameter of addInputTypes ' + 'must be of type object');
   }
 
