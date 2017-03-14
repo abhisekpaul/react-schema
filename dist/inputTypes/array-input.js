@@ -62,6 +62,10 @@ var _RaisedButton = require('material-ui/RaisedButton');
 
 var _RaisedButton2 = _interopRequireDefault(_RaisedButton);
 
+var _Avatar = require('material-ui/Avatar');
+
+var _Avatar2 = _interopRequireDefault(_Avatar);
+
 var _question = require('../question');
 
 var _question2 = _interopRequireDefault(_question);
@@ -84,6 +88,8 @@ var ArrayInput = (_temp = _class = function (_React$Component) {
           return questionrenderer;
         });
 
+        var label = _this.props.id;
+
         var header = _react2.default.createElement(
           _List.ListItem,
           {
@@ -92,8 +98,14 @@ var ArrayInput = (_temp = _class = function (_React$Component) {
               _IconButton2.default,
               { tooltip: 'Remove Item', onTouchTap: _this.removeItem.bind(_this, index), style: { marginLeft: 200 } },
               _react2.default.createElement(_delete2.default, null)
-            ) },
-          'Item-' + (index + 1)
+            ),
+            leftAvatar: _react2.default.createElement(
+              _Avatar2.default,
+              null,
+              index + 1
+            )
+          },
+          label + '-item'
         );
 
         return _react2.default.createElement(
@@ -190,13 +202,17 @@ var ArrayInput = (_temp = _class = function (_React$Component) {
     value: function render() {
       var value = this.state.value || [];
       var description = this.props.description;
+      var count = value.length;
 
       var header = _react2.default.createElement(
         _List.ListItem,
         {
           disabled: true,
           rightIcon: _react2.default.createElement(_RaisedButton2.default, { label: 'Add', secondary: true, onTouchTap: this.addItem }) },
-        description
+        description,
+        '(',
+        count,
+        ')'
       );
 
       return _react2.default.createElement(
