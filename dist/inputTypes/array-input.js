@@ -82,12 +82,6 @@ var ArrayInput = (_temp = _class = function (_React$Component) {
 
     _this.renderQuestions = function (value) {
       var questions = value.map(function (item, index) {
-
-        var questionRenderers = _this.renderQuestion(item, index);
-        var questionsRenderer = questionRenderers.map(function (questionrenderer) {
-          return questionrenderer;
-        });
-
         var label = _this.props.id;
 
         var header = _react2.default.createElement(
@@ -107,6 +101,8 @@ var ArrayInput = (_temp = _class = function (_React$Component) {
           },
           label + '-item'
         );
+
+        var questionRenderers = _this.renderQuestion(item, index);
 
         return _react2.default.createElement(
           _List.List,
@@ -141,7 +137,7 @@ var ArrayInput = (_temp = _class = function (_React$Component) {
         for (var _iterator = (0, _getIterator3.default)(questions), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
           var item = _step.value;
 
-          newItem[item.questionId] = "";
+          newItem[item.questionId] = null;
         }
       } catch (err) {
         _didIteratorError = true;
