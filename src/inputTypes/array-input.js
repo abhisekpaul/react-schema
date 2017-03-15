@@ -68,74 +68,70 @@ class ArrayInput extends React.Component {
     );
   }
 
-    renderQuestion(item, index) {
-      let result = [];
-      for(let key in item) {
-        let question = this.getQuestion(key);
-        let questionItem = (
-            <Question key={`${question.questionId}_${index}`}
-                      questionSetId={this.props.id}
-                      questionId={question.questionId}
-                      question={question.question}
-                      validateOn={question.validateOn}
-                      validations={question.validations}
-                      text={question.text}
-                      value={item[key]}
-                      postText={question.postText}
-                      input={question.input}
-                      classes={this.props.classes}
-                      renderError={this.props.renderError}
-                      renderRequiredAsterisk={this.props.renderRequiredAsterisk}
-                      questionAnswers={this.props.questionAnswers}
-                      validationErrors={this.props.validationErrors}
-                      onAnswerChange={this.handleAnswerChange.bind(this,index)}
-                      onQuestionBlur={this.props.onQuestionBlur}
-                      onKeyDown={this.props.onKeyDown} />
-        )
-        result.push(questionItem);
-      }
-      return result;
+  renderQuestions = (value) => {
+    let questions = value.map((item, index) => {
+      const label = this.props.id;
+
+      const header = (
+        <ListItem
+          disabled={true}
+          rightIcon={
+            <IconButton tooltip="Remove Item" onTouchTap={this.removeItem.bind(this, index)} style={{marginLeft:200}}>
+              <RemoveIcon/>
+            </IconButton>
+          }
+          leftAvatar={
+            <Avatar>{index+1}</Avatar>
+          }
+          >
+          {`${label}-item`}
+        </ListItem>
+      )
+
+      let questionRenderers = this.renderQuestion(item, index);
+
+      return (
+        <List key={`nested${index}`}>
+          <Collapsible trigger={header}>
+            {questionRenderers}
+          </Collapsible>
+
+        </List>
+
+      )
+      // value={this.props.questionAnswers[question.questionId]}
+    });
+
+    return questions;
+  }
+
+  renderQuestion(item, index) {
+    let result = [];
+    for(let key in item) {
+      let question = this.getQuestion(key);
+      let questionItem = (
+        <Question key={`${question.questionId}_${index}`}
+          questionSetId={this.props.id}
+          questionId={question.questionId}
+          question={question.question}
+          validateOn={question.validateOn}
+          validations={question.validations}
+          text={question.text}
+          value={item[key]}
+          postText={question.postText}
+          input={question.input}
+          classes={this.props.classes}
+          renderError={this.props.renderError}
+          renderRequiredAsterisk={this.props.renderRequiredAsterisk}
+          questionAnswers={this.props.questionAnswers}
+          validationErrors={this.props.validationErrors}
+          onAnswerChange={this.handleAnswerChange.bind(this,index)}
+          onQuestionBlur={this.props.onQuestionBlur}
+          onKeyDown={this.props.onKeyDown} />
+      )
+      result.push(questionItem);
     }
-
-    renderQuestions = (value) => {
-      let questions = value.map((item, index) => {
-
-        let questionRenderers = this.renderQuestion(item, index);
-        let questionsRenderer = questionRenderers.map(questionrenderer => {
-          return questionrenderer;
-        });
-
-        const label = this.props.id;
-
-        const header = (
-          <ListItem
-            disabled={true}
-            rightIcon={
-              <IconButton tooltip="Remove Item" onTouchTap={this.removeItem.bind(this, index)} style={{marginLeft:200}}>
-                <RemoveIcon/>
-              </IconButton>
-            }
-            leftAvatar={
-              <Avatar>{index+1}</Avatar>
-            }
-            >
-            {`${label}-item`}
-          </ListItem>
-        )
-
-        return (
-          <List key={`nested${index}`}>
-            <Collapsible trigger={header}>
-              {questionRenderers}
-            </Collapsible>
-
-          </List>
-
-        )
-        // value={this.props.questionAnswers[question.questionId]}
-      });
-
-      return questions;
+    return result;
   }
 
   handleChange = (event) => {
@@ -154,7 +150,7 @@ class ArrayInput extends React.Component {
     let questions = this.props.elements.questions;
     let newItem = {};
     for(let item of questions){
-      newItem[item.questionId] = "";
+      newItem[item.questionId] = null;
     }
 
     value.push(newItem);

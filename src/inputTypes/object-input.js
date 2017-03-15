@@ -82,7 +82,8 @@ class ObjectInput extends React.Component {
   }
 
   handleChange = (questionSetId, questionId, questionAnswer, validations, validateOn) => {
-    let value = cloneDeep(this.state.value);
+    let stateValue = this.state.value || {};
+    let value = cloneDeep(stateValue);
     value[questionId] = questionAnswer;
 
     this.setState({
