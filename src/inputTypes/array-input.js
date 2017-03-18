@@ -146,7 +146,7 @@ class ArrayInput extends React.Component {
   }
 
   addItem = () => {
-    let value = this.state.value.slice(0);
+    let value = this.state.value && this.state.value.slice(0) || [];
     let questions = this.props.elements.questions;
     let newItem = {};
     for(let item of questions){

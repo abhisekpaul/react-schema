@@ -126,7 +126,7 @@ var ArrayInput = (_temp = _class = function (_React$Component) {
     };
 
     _this.addItem = function () {
-      var value = _this.state.value.slice(0);
+      var value = _this.state.value && _this.state.value.slice(0) || [];
       var questions = _this.props.elements.questions;
       var newItem = {};
       var _iteratorNormalCompletion = true;

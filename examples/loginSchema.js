@@ -28,6 +28,10 @@ module.exports = {
     "questionSets" : [{
       "index" : 1,
       "questionSetId" : "register-set"
+    },
+    {
+      "index" : 2,
+      "questionSetId" : "question-set-3"
     }]
   }],
   "questionSets" : [{
@@ -921,5 +925,283 @@ module.exports = {
       //   ]
       // }]
     ]
-    }]
+  },
+  {
+			"questionSetId": "question-set-3",
+			"collapsible": true,
+			"collapse": true,
+			"questions": [
+				{
+					"questionId": "Feature",
+					"input": {
+						"type": "ArrayInput",
+						"required": false,
+						"props": {
+							"description": "A collection of Feature",
+							"elements": {
+								"questions": [
+									{
+										"questionId": "ExistingFeature",
+										"input": {
+											"type": "radioOptionsInput",
+											"required": true,
+											"props": {
+												"fullWidth": true,
+												"hintText": "Indicates whether the account has any feature",
+												"floatingLabelText": "ExistingFeature"
+											},
+											"options": [
+												{
+													"text": "Yes",
+													"value": true,
+													"validations": [
+														{
+															"type": "isLength",
+															"params": [
+																1
+															]
+														}
+													]
+												},
+												{
+													"text": "No",
+													"value": false
+												}
+											]
+										},
+										"question": "ExistingFeature?"
+									},
+									{
+										"questionId": "ProductSubType",
+										"input": {
+											"type": "MaterialSelectField",
+											"required": false,
+											"props": {
+												"fullWidth": true,
+												"hintText": "Describes if the offering is promotional, regular or a description of a future state",
+												"floatingLabelText": "ProductSubType"
+											},
+											"options": [
+												{
+													"text": "FutureMultipleTerms",
+													"value": "FutureMultipleTerms"
+												},
+												{
+													"text": "Promotional",
+													"value": "Promotional"
+												},
+												{
+													"text": "Regular",
+													"value": "Regular"
+												}
+											]
+										}
+									},
+									{
+										"questionId": "StartPromotionOrFutureTerms",
+										"input": {
+											"type": "MaterialDatePicker",
+											"required": false,
+											"props": {
+												"fullWidth": true,
+												"hintText": "Describes the start date",
+												"floatingLabelText": "StartPromotionOrFutureTerms"
+											}
+										}
+									},
+									{
+										"questionId": "StopPromotionOrFutureTerms",
+										"input": {
+											"type": "MaterialDatePicker",
+											"required": false,
+											"props": {
+												"fullWidth": true,
+												"hintText": "Describes the end date",
+												"floatingLabelText": "StopPromotionOrFutureTerms"
+											}
+										}
+									},
+									{
+										"questionId": "LengthPromotionalInDays",
+										"input": {
+											"type": "materialTextField",
+											"required": false,
+											"props": {
+												"fullWidth": true,
+												"hintText": "Describes the length if only a duration is given instead of a date",
+												"floatingLabelText": "LengthPromotionalInDays",
+												"type": "number"
+											}
+										}
+									},
+									{
+										"questionId": "DateOfChange",
+										"input": {
+											"type": "MaterialDatePicker",
+											"required": false,
+											"props": {
+												"fullWidth": true,
+												"hintText": "Date of the change if it refers to future terms",
+												"floatingLabelText": "DateOfChange"
+											}
+										}
+									},
+									{
+										"questionId": "FeatureDetails",
+										"input": {
+											"type": "ArrayInput",
+											"required": false,
+											"props": {
+												"description": "A collection of Feature Details",
+												"elements": {
+													"questions": [
+														{
+															"questionId": "FeatureSubType",
+															"input": {
+																"type": "MaterialSelectField",
+																"required": false,
+																"props": {
+																	"fullWidth": true,
+																	"hintText": "FeatureSubType",
+																	"floatingLabelText": "FeatureSubType"
+																},
+																"options": [
+																	{
+																		"text": "FutureMultipleTerms",
+																		"value": "FutureMultipleTerms"
+																	},
+																	{
+																		"text": "Promotional",
+																		"value": "Promotional"
+																	},
+																	{
+																		"text": "Regular",
+																		"value": "Regular"
+																	}
+																]
+															}
+														},
+														{
+															"questionId": "StartPromotionOrFutureTerms",
+															"input": {
+																"type": "MaterialDatePicker",
+																"required": false,
+																"props": {
+																	"fullWidth": true,
+																	"hintText": "Describes the start date",
+																	"floatingLabelText": "StartPromotionOrFutureTerms"
+																}
+															}
+														},
+														{
+															"questionId": "StopPromotionOrFutureTerms",
+															"input": {
+																"type": "MaterialDatePicker",
+																"required": false,
+																"props": {
+																	"fullWidth": true,
+																	"hintText": "Describes the end date",
+																	"floatingLabelText": "StopPromotionOrFutureTerms"
+																}
+															}
+														},
+														{
+															"questionId": "LengthPromotionalInDays",
+															"input": {
+																"type": "materialTextField",
+																"required": false,
+																"props": {
+																	"fullWidth": true,
+																	"hintText": "Describes the length if only a duration is given instead of a date",
+																	"floatingLabelText": "LengthPromotionalInDays",
+																	"type": "number"
+																}
+															}
+														},
+														{
+															"questionId": "DateOfChange",
+															"input": {
+																"type": "MaterialDatePicker",
+																"required": false,
+																"props": {
+																	"fullWidth": true,
+																	"hintText": "Date of the change if it refers to future terms",
+																	"floatingLabelText": "DateOfChange"
+																}
+															}
+														},
+														{
+															"questionId": "FeatureType",
+															"input": {
+																"type": "materialTextField",
+																"required": false,
+																"props": {
+																	"fullWidth": true,
+																	"hintText": "Type that represents the nature of the feature",
+																	"floatingLabelText": "FeatureType"
+																}
+															}
+														},
+														{
+															"questionId": "FeatureName",
+															"input": {
+																"type": "materialTextField",
+																"required": false,
+																"props": {
+																	"fullWidth": true,
+																	"hintText": "The name of the feature",
+																	"floatingLabelText": "FeatureName"
+																}
+															}
+														},
+														{
+															"questionId": "FeatureDescription",
+															"input": {
+																"type": "materialTextField",
+																"required": false,
+																"props": {
+																	"fullWidth": true,
+																	"hintText": "A textual explanation of what the feature",
+																	"floatingLabelText": "FeatureDescription"
+																}
+															}
+														},
+														{
+															"questionId": "FeatureValue",
+															"input": {
+																"type": "materialTextField",
+																"required": false,
+																"props": {
+																	"fullWidth": true,
+																	"hintText": "The value or values permissible for a specific feature for an individual product representing a product characteristic",
+																	"floatingLabelText": "FeatureValue"
+																}
+															}
+														},
+														{
+															"questionId": "CriteriaType",
+															"input": {
+																"type": "materialTextField",
+																"required": false,
+																"props": {
+																	"fullWidth": true,
+																	"hintText": "Criteria that is required in order to be eligible for the feature",
+																	"floatingLabelText": "CriteriaType"
+																}
+															}
+														}
+													]
+												}
+											}
+										}
+									}
+								]
+							}
+						}
+					}
+				}
+			],
+			"questionSetHeader": "Feature"
+		}
+]
   };
