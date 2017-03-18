@@ -43,6 +43,7 @@ module.exports = {
           "type":"materialTextField",
           "required":true,
           "props":{
+            "valueType":"array",
             "fullWidth":true,
             "hintText":"Enter your email address",
             "floatingLabelText":"Email"

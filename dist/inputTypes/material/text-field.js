@@ -41,9 +41,13 @@ var MaterialTextField = (_temp = _class = function (_React$Component) {
     var _this = (0, _possibleConstructorReturn3.default)(this, (MaterialTextField.__proto__ || (0, _getPrototypeOf2.default)(MaterialTextField)).call(this, props));
 
     _this.handleChange = function (event) {
+      var value = event.target.value;
+      if (_this.props.valueType === 'array') {
+        value = [event.target.value];
+      }
       _this.setState({
-        value: event.target.value
-      }, _this.props.onChange.bind(null, event.target.value));
+        value: value
+      }, _this.props.onChange.bind(null, value));
     };
 
     _this.state = {
@@ -65,6 +69,10 @@ var MaterialTextField = (_temp = _class = function (_React$Component) {
     key: 'render',
     value: function render() {
       var autoComplete = this.props.autoComplete ? this.props.autoComplete : 'off';
+      var value = this.state.value;
+      if (this.props.valueType === 'array' && this.state.value && this.state.value.length > 0) {
+        value = this.state.value[0];
+      }
       return _react2.default.createElement(_TextField2.default, {
         id: this.props.id,
         type: this.props.type,
@@ -74,7 +82,7 @@ var MaterialTextField = (_temp = _class = function (_React$Component) {
         hintText: this.props.hintText,
         floatingLabelText: this.props.floatingLabelText,
         disabled: this.props.disabled,
-        value: this.state.value,
+        value: value,
         onChange: this.handleChange,
         onBlur: this.props.onBlur.bind(null, this.state.value),
         onKeyDown: this.props.onKeyDown,

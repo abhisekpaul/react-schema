@@ -67,12 +67,12 @@ var MultiSelect = (_temp = _class = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
-      var options = this.props.options.map(function (opt, index) {
+      var options = this.props.options && this.props.options.map(function (opt, index) {
         return {
           value: opt.value,
           label: opt.text
         };
-      });
+      }) || [];
       return _react2.default.createElement(_reactSelect2.default, {
         id: this.props.id,
         multi: this.props.multi,

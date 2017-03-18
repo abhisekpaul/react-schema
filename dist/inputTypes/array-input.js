@@ -206,7 +206,7 @@ var ArrayInput = (_temp = _class = function (_React$Component) {
           disabled: true,
           rightIcon: _react2.default.createElement(_RaisedButton2.default, { label: 'Add', secondary: true, onTouchTap: this.addItem }) },
         description,
-        '(',
+        ' (',
         count,
         ')'
       );
