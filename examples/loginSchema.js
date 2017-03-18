@@ -36,23 +36,22 @@ module.exports = {
     "collapsible":true,
     "collapse":false,
     "questions" : [
-      // {
-      //   "questionId":"email",
-      //   "input":{
-      //     "name":"email",
-      //     "type":"materialTextField",
-      //     "required":true,
-      //     "props":{
-      //       "type":"email",
-      //       "fullWidth":true,
-      //       "hintText":"Enter your email address",
-      //       "floatingLabelText":"Email"
-      //     }
-      //   },
-      //   "validations":[{
-      //     "type":"isEmail"
-      //     }]
-      //   },
+      {
+        "questionId":"email",
+        "input":{
+          "name":"email",
+          "type":"materialTextField",
+          "required":true,
+          "props":{
+            "fullWidth":true,
+            "hintText":"Enter your email address",
+            "floatingLabelText":"Email"
+          }
+        },
+        "validations":[{
+          "type":"isEmail"
+          }]
+        },
         // {
         //   "questionId":"helperTypes",
         //   "question":"",
@@ -97,6 +96,27 @@ module.exports = {
               "description":"Please add eligibility criteria",
               "elements":{
                 "questions":[
+                  {
+                    "questionId":"helperTypes",
+                    "question":"",
+                    "input":{
+                      "type":"MultiSelect",
+                      "placeholder":"All. Or select specific helper types123.",
+                      "props":{
+                        "multi":true,
+                        "simpleValue":true,
+                        "creatable":true
+                      }
+                    },
+                    "validations":[
+                      {
+                        "type":"isLength",
+                        "params":[
+                          1
+                        ]
+                      }
+                    ]
+                  },
                   {
                     "questionId" : "Nestedfield1",
                     "question" : "Nested field 1",
@@ -880,40 +900,7 @@ module.exports = {
       //     "type" : "isDate"
       //   }]
       // },
-      // {
-      //   "questionId":"helperTypes",
-      //   "question":"",
-      //   "input":{
-      //     "type":"MultiSelect",
-      //     "placeholder":"All. Or select specific helper types.",
-      //     "options":[
-      //       {text:"Baby Sitter", value:"Baby Sitter"},
-      //       {text:"Nanny", value:"Nanny"},
-      //       {text:"Part Time Nanny", value:"Part Time Nanny"},
-      //       {text:"Full Time Nanny", value:"Full Time Nanny"},
-      //       {text:"After School Nanny", value:"After School Nanny"},
-      //       {text:"Live In Nanny", value:"Live In Nanny"},
-      //       {text:"Au Pair", value:"Au Pair"},
-      //       {text:"Child Minder", value:"Child Minder"},
-      //       {text:"Mothers Help", value:"Mothers Help"},
-      //       {text:"Maternity Nurse and Midwife", value:"Maternity Nurse and Midwife"},
-      //       {text:"House Keepers and Cleaners", value:"House Keepers and Cleaners"},
-      //       {text:"Tutor", value:"Tutor"}
-      //     ],
-      //     "props":{
-      //       "multi":true,
-      //       "simpleValue":true
-      //     }
-      //   },
-      //   "validations":[
-      //     {
-      //       "type":"isLength",
-      //       "params":[
-      //         1
-      //       ]
-      //     }
-      //   ]
-      // },
+
       // {
       //   "questionId":"location",
       //   "question":"",

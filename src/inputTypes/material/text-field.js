@@ -33,13 +33,21 @@ class MaterialTextField extends React.Component {
   }
 
   handleChange = (event) => {
+    let value = event.target.value;
+    if(this.props.valueType === 'array'){
+      value = [event.target.value];
+    }
     this.setState({
-      value: event.target.value,
-    }, this.props.onChange.bind(null, event.target.value));
+      value: value,
+    }, this.props.onChange.bind(null, value));
   };
 
   render() {
     const autoComplete = this.props.autoComplete ? this.props.autoComplete : 'off';
+    let value = this.state.value;
+    if(this.props.valueType === 'array' && this.state.value && this.state.value.length>0){
+      value = this.state.value[0];
+    }
     return (
       <TextField
         id={this.props.id}
@@ -50,7 +58,7 @@ class MaterialTextField extends React.Component {
         hintText={this.props.hintText}
         floatingLabelText={this.props.floatingLabelText}
         disabled={this.props.disabled}
-        value={this.state.value}
+        value={value}
         onChange={this.handleChange}
         onBlur={this.props.onBlur.bind(null, this.state.value)}
         onKeyDown={this.props.onKeyDown}

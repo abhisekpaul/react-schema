@@ -41,13 +41,15 @@ class MultiSelect extends React.Component {
     }, this.props.onChange.bind(null, value));
   };
 
+
+
   render() {
-    let options = this.props.options.map((opt, index) => {
+    let options = this.props.options && this.props.options.map((opt, index) => {
       return {
         value:opt.value,
         label:opt.text
       };
-    });
+    }) || [];
     return (
       <Select
         id={this.props.id}

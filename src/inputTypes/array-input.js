@@ -55,7 +55,7 @@ class ArrayInput extends React.Component {
         rightIcon={
           <RaisedButton label="Add" secondary={true} onTouchTap={this.addItem}/>
         }>
-        {description}({count})
+        {description} ({count})
       </ListItem>
     )
 
