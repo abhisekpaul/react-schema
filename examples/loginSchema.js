@@ -41,6 +41,19 @@ module.exports = {
     "collapse":false,
     "questions" : [
       {
+        "questionId": "dob",
+        "input": {
+          "type": "InlineDatePicker",
+          "props": {
+            "fullWidth": true,
+            "hintText": "Enter date of birth"
+          }
+        },
+        "validations": [{
+          "type": "isDate"
+        }]
+      },
+      {
         "questionId":"email",
         "input":{
           "name":"email",
