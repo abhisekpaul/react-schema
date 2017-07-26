@@ -16,7 +16,7 @@ module.exports = {
     "disableDefaultButton":false,
     "panelId" : "register-panel",
     "panelHeader" : "React Schema Example",
-    "panelText" : "Please enter",
+    "panelText" : "this is panel",
     "action" : {
       "default" : {
         "action" : "SUBMIT"
@@ -40,6 +40,15 @@ module.exports = {
     "collapsible":true,
     "collapse":false,
     "questions" : [
+      {
+        "questionId": "rta",
+        "input": {
+          "type": "RichTextArea",
+          "props": {
+            "placeholder": "Please describe yourself"
+          }
+        }
+      },
       {
         "questionId": "dob",
         "input": {
