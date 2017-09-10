@@ -27,7 +27,9 @@ var inputTypes = {
   WeeklyCalendar: require('./weekly-calendar'),
   FileUpload: require('./file-upload'),
   ArrayInput: require('./array-input'),
-  ObjectInput: require('./object-input')
+  ObjectInput: require('./object-input'),
+  InlineDatePicker: require('./inline-date-picker'),
+  RichTextArea: require('./rich-text-area-input')
 };
 
 /**
