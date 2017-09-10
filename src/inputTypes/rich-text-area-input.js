@@ -1,6 +1,5 @@
 import React from 'react';
-import {MegadraftEditor, editorStateFromRaw, editorStateToJSON, DraftJS} from "megadraft";
-const {ContentState, EditorState} = DraftJS;
+import ReactQuill from 'react-quill';
 
 class RichTextArea extends React.Component {
 
@@ -19,49 +18,60 @@ class RichTextArea extends React.Component {
 
   constructor(props) {
     super(props);
-    let value = "Yo man";//this.props.value;
-    let editorState;
-    try{
-      value =  value ? JSON.parse(value): value;
-      editorState = editorStateFromRaw(value);
-    } catch (ex){
-      editorState = EditorState.createWithContent(ContentState.createFromText(value))
-    }
     this.state = {
-      editorState
+      value:this.props.value
     };
   }
 
-  handleChange = (editorState) => {
-    const value = editorStateToJSON(editorState);
+  handleChange = (value) => {
     this.setState({
-      editorState
+      value
     }, this.props.onChange.bind(null, value));
   }
 
   componentWillReceiveProps(props) {
     if(this.props.value !== props.value) {
       let value = props.value;
-      value =  value ? JSON.parse(value): value;
-      let editorState = editorStateFromRaw(value);
       this.setState({
-        editorState
+        value
       });
     }
   }
 
   render() {
-    let editorState = this.state.editorState;
+    const modules = {
+      toolbar: [
+        [{ 'header': [1, 2, false] }],
+        ['bold', 'italic', 'underline','blockquote'],
+        [{'list': 'ordered'}, {'list': 'bullet'}],
+        ['image']
+      ]
+    }
+
+    const formats = [
+      'header',
+      'bold', 'italic', 'underline', 'blockquote',
+      'list', 'bullet',
+      'image'
+    ];
+
+    let value = this.state.value;
     return (
-      <MegadraftEditor
+      <ReactQuill value={value}
+        aria-labelledby={this.props.labelId}
+        required={this.props.required
+                    ? 'required'
+                    : undefined}
+        id={this.props.id}
         name={this.props.name}
-        className={this.props.className}
         placeholder={this.props.placeholder}
-        editorState={editorState}
-        onChange={this.handleChange}/>
+        modules={modules}
+        formats={formats}
+        onChange={this.handleChange}
+        onBlur={this.props.onBlur.bind(null, this.state.value)}
+        onKeyDown={this.props.onKeyDown} />
     );
   }
-
 };
 
 module.exports = RichTextArea;
