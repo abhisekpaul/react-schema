@@ -65,11 +65,14 @@ var RichTextArea = (_temp = _class = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
-      var modules = {
-        toolbar: [[{ 'header': [1, 2, false] }], ['bold', 'italic', 'underline', 'blockquote'], [{ 'list': 'ordered' }, { 'list': 'bullet' }], ['image']]
+      var DEFAULT_MODULES = {
+        toolbar: [[{ 'header': [1, 2, false] }], ['bold', 'italic', 'underline', 'blockquote'], [{ 'list': 'ordered' }, { 'list': 'bullet' }]]
       };
 
-      var formats = ['header', 'bold', 'italic', 'underline', 'blockquote', 'list', 'bullet', 'image'];
+      var DEFAULT_FORMATS = ['header', 'bold', 'italic', 'underline', 'blockquote', 'list', 'bullet'];
+
+      var modules = this.props.modules || DEFAULT_MODULES;
+      var formats = this.props.formats || DEFAULT_FORMATS;
 
       var value = this.state.value;
       return _react2.default.createElement(_reactQuill2.default, { value: value,
