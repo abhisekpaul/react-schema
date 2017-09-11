@@ -41,6 +41,23 @@ module.exports = {
     "collapse":false,
     "questions" : [
       {
+        "questionId": "location",
+        "question": "location",
+        "input": {
+          "type": "LocationInput",
+          "placeholder": "Please type POSTCODE and select the location",
+          "props": {
+            "autoActivateFirstSuggest": true,
+            "country": "gb",
+            "radius": 20,
+            "initialValue": ""
+          }
+        },
+        "validations": [{
+          "type": "isLocation"
+        }]
+      },
+      {
         "questionId": "rta",
         "input": {
           "type": "RichTextArea",

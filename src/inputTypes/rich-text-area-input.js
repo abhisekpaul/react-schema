@@ -39,21 +39,22 @@ class RichTextArea extends React.Component {
   }
 
   render() {
-    const modules = {
+    const DEFAULT_MODULES = {
       toolbar: [
         [{ 'header': [1, 2, false] }],
         ['bold', 'italic', 'underline','blockquote'],
-        [{'list': 'ordered'}, {'list': 'bullet'}],
-        ['image']
+        [{'list': 'ordered'}, {'list': 'bullet'}]
       ]
     }
 
-    const formats = [
+    const DEFAULT_FORMATS = [
       'header',
       'bold', 'italic', 'underline', 'blockquote',
-      'list', 'bullet',
-      'image'
+      'list', 'bullet'
     ];
+
+    const modules = this.props.modules || DEFAULT_MODULES;
+    const formats = this.props.formats || DEFAULT_FORMATS;
 
     let value = this.state.value;
     return (
