@@ -75,6 +75,7 @@ var MultiSelect = (_temp = _class = function (_React$Component) {
       }) || [];
       return _react2.default.createElement(_reactSelect2.default, {
         id: this.props.id,
+        backspaceToRemoveMessage: '',
         multi: this.props.multi,
         simpleValue: this.props.simpleValue,
         placeholder: this.props.placeholder,
