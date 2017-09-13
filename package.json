@@ -44,7 +44,7 @@
     "react-collapsible": "^1.4.0",
     "react-dropzone": "^3.7.0",
     "react-dropzone-component": "^1.4.1",
-    "react-geosuggest": "^2.5.0",
+    "react-geosuggest": "^1.24.1",
     "react-quill": "^1.0.0",
     "react-select": "^1.0.0-rc.3",
     "validator": "^4.0.5"
