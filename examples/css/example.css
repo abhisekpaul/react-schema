@@ -329,17 +329,6 @@ pre.line-numbers > code {
       text-align: right;
     }
 
-.geosuggest__suggests--hidden {
-  max-height: 0;
-  overflow: hidden;
-  border-width: 0;
-}
-
-.geosuggest__item--active {
-  background: #267dc0;
-  color: #fff;
-}
-
 .array-bg {
   height: 20px;
   background: #fefefe;
@@ -351,7 +340,19 @@ pre.line-numbers > code {
  * The geosuggest module
  * NOTE: duplicated font-sizes' are for browsers which don't support rem (only IE 8)
  */
-.geosuggest {
+
+ .geosuggest__suggests--hidden {
+   max-height: 0;
+   overflow: hidden;
+   border-width: 0;
+ }
+
+ .geosuggest__item--active {
+   background: #267dc0;
+   color: #fff;
+ }
+
+ .geosuggest {
   position: relative;
   margin: 1em auto;
   text-align: left;
@@ -391,10 +392,6 @@ pre.line-numbers > code {
   overflow: hidden;
   border-width: 0;
 }
-
-/**
- * A geosuggest item
- */
 .geosuggest__item {
   font-size: 18px;
   font-size: 1rem;

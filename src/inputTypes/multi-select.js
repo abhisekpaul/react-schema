@@ -53,6 +53,7 @@ class MultiSelect extends React.Component {
     return (
       <Select
         id={this.props.id}
+        backspaceToRemoveMessage=''
         multi={this.props.multi}
         simpleValue={this.props.simpleValue}
         placeholder={this.props.placeholder}

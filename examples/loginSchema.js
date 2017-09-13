@@ -96,41 +96,41 @@ module.exports = {
           "type":"isEmail"
           }]
         },
-        // {
-        //   "questionId":"helperTypes",
-        //   "question":"",
-        //   "input":{
-        //     "type":"MultiSelect",
-        //     "placeholder":"All. Or select specific helper types.",
-        //     "options":[
-        //       {text:"Baby Sitter", value:"Baby Sitter"},
-        //       {text:"Nanny", value:"Nanny"},
-        //       {text:"Part Time Nanny", value:"Part Time Nanny"},
-        //       {text:"Full Time Nanny", value:"Full Time Nanny"},
-        //       {text:"After School Nanny", value:"After School Nanny"},
-        //       {text:"Live In Nanny", value:"Live In Nanny"},
-        //       {text:"Au Pair", value:"Au Pair"},
-        //       {text:"Child Minder", value:"Child Minder"},
-        //       {text:"Mothers Help", value:"Mothers Help"},
-        //       {text:"Maternity Nurse and Midwife", value:"Maternity Nurse and Midwife"},
-        //       {text:"House Keepers and Cleaners", value:"House Keepers and Cleaners"},
-        //       {text:"Tutor", value:"Tutor"}
-        //     ],
-        //     "props":{
-        //       "multi":true,
-        //       "simpleValue":true,
-        //       "ensureArray":true
-        //     }
-        //   },
-        //   "validations":[
-        //     {
-        //       "type":"isLength",
-        //       "params":[
-        //         1
-        //       ]
-        //     }
-        //   ]
-        // },
+        {
+          "questionId":"helperTypes",
+          "question":"",
+          "input":{
+            "type":"MultiSelect",
+            "placeholder":"All. Or select specific helper types.",
+            "options":[
+              {text:"Baby Sitter", value:"Baby Sitter"},
+              {text:"Nanny", value:"Nanny"},
+              {text:"Part Time Nanny", value:"Part Time Nanny"},
+              {text:"Full Time Nanny", value:"Full Time Nanny"},
+              {text:"After School Nanny", value:"After School Nanny"},
+              {text:"Live In Nanny", value:"Live In Nanny"},
+              {text:"Au Pair", value:"Au Pair"},
+              {text:"Child Minder", value:"Child Minder"},
+              {text:"Mothers Help", value:"Mothers Help"},
+              {text:"Maternity Nurse and Midwife", value:"Maternity Nurse and Midwife"},
+              {text:"House Keepers and Cleaners", value:"House Keepers and Cleaners"},
+              {text:"Tutor", value:"Tutor"}
+            ],
+            "props":{
+              "multi":true,
+              "simpleValue":true,
+              "ensureArray":true
+            }
+          },
+          "validations":[
+            {
+              "type":"isLength",
+              "params":[
+                1
+              ]
+            }
+          ]
+        },
         {
           "questionId" : "feature",
           "question" : "Feature",
